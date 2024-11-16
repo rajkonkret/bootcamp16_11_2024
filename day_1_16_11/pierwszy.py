@@ -50,3 +50,36 @@ print(sys.int_info)
 # default_max_str_digits=4300,
 # str_digits_check_threshold=640)
 # int w python 64 bitowym ograniczony jest pamięcią
+
+# zmienna - pudełko na dane (przechowywane w pamięci)
+# typowanie dynamiczne - typ zmiennej jest określany na podstawie tupu danych jakie do niej wrzucimy
+# snake_case - konwencja nazewnicza w pythonie
+# camelCase, PascalCase, kebab-case - inne konwencje nazewnicze
+
+# PEP8 mówi, że nazwa powinna podpowiadać co zmienna przechowuje
+name = "Radek"  # zapisanie danych do zmiennej
+print(type(name))  # <class 'str'>
+print(name)  # wypisanie wartości ze zmiennej
+name_info: str = 'Maciek'  # podpowiedz typu dla programisty
+# to nie jest deklaracja typu
+# sprawdzmy czy to tylko deklaracja typu
+print(name_info)
+print(type(name_info))
+# Maciek
+# <class 'str'>
+name_info = 50
+print(name_info)
+print(type(name_info))
+# 50
+# <class 'int'>
+
+age = 48
+print(age)
+print(type(age))
+# 48
+# <class 'int'>
+
+age = "Radek"
+# print(age + name_info) # TypeError: can only concatenate str (not "int") to str
+age = "48"
+print(int(age) + name_info)  # 98
