@@ -66,3 +66,70 @@ print(lista[-6], lista[0])  # Radek Radek
 # IndexError: list index out of range
 #
 # Process finished with exit code 1
+
+# wypisywanie wielu elementów z listy (slicowanie)
+# ['Radek', 'Maciek', 'Tomek', 'Zenek', 'Marta', 'Anna']
+#    -6        -5        -4       -3       -2       -1
+#     0         1         2        3        4        5
+print(lista[0:3])  # ['Radek', 'Maciek', 'Tomek']
+print(lista[1:3])  # ['Maciek', 'Tomek']
+print(lista[:3])  # ['Radek', 'Maciek', 'Tomek']
+print(lista[:2])  # ['Radek', 'Maciek']
+print(lista[-3:])  # ['Zenek', 'Marta', 'Anna']
+print(lista[-2:])  # ['Marta', 'Anna']
+print(lista[-1:])  # ['Anna']
+print(lista[-1])  # Anna
+print(lista[-1:][0])  # Anna
+print(lista[-1][0])  # A
+print(lista[:])  # ['Radek', 'Maciek', 'Tomek', 'Zenek', 'Marta', 'Anna'] ->012345
+print(lista[2:5])  # ['Tomek', 'Zenek', 'Marta']
+print(lista[2:])  # ['Tomek', 'Zenek', 'Marta', 'Anna']
+
+print(lista[-3:0])  # [] -> [3:0]
+print(lista[0:-3])  # [0:3] -> ['Radek', 'Maciek', 'Tomek']
+
+print(lista[2:2])  # []
+print(lista[4:10])  # ['Marta', 'Anna']
+print(lista[7:11])  # []
+
+# nadpisanie elementu w liscie na wskazanym indeksie
+lista[2] = "Mikołaj"
+print(lista)  # ['Radek', 'Maciek', 'Mikołaj', 'Zenek', 'Marta', 'Anna']
+print(len(lista))  # długość 6
+
+# rozszerzenie listy, wstawienie elementu na wskazanym indeksie
+lista.insert(1, "Karolina")
+print(lista)  # ['Radek', 'Karolina', 'Maciek', 'Mikołaj', 'Zenek', 'Marta', 'Anna']
+print(len(lista))  # długość 7
+
+# usunięcie elemntu z listy
+# 1. usunięcie po indeksie -> pop()
+# 2. usunięcie po elemencie -> remove()
+
+# po indeksie pop() - zwraca informację co usunął
+print(lista.pop(0))  # Radek
+print(lista)  # ['Karolina', 'Maciek', 'Mikołaj', 'Zenek', 'Marta', 'Anna']
+ind = lista.index("Zenek")  # pierwszy napotkany
+print("Numer indeksu dla Zenek:", ind)
+print(lista.pop(ind))  # Zenek
+print(lista)  # ['Karolina', 'Maciek', 'Mikołaj', 'Marta', 'Anna']
+print(lista.pop())  # w liście to usunie ostatni element, Anna
+
+# usunięcie po elemencie, pierwszy napotkany
+lista.append("Maciek")
+print(lista)  # ['Karolina', 'Maciek', 'Mikołaj', 'Marta', 'Maciek']
+lista.remove("Maciek")
+print(lista)  # ['Karolina', 'Mikołaj', 'Marta', 'Maciek']
+
+# print(lista.remove("Zenek")) # ValueError: list.remove(x): x not in list, nie ma takiego elementu
+print("Marta" in lista)  # True
+print("Zenek" in lista)  # False
+
+print(lista.remove("Marta"))  # None
+print(lista)  # ['Karolina', 'Mikołaj', 'Maciek']
+
+lista.append("Marta")
+lista.append("Marta")
+lista.append("Marcin")
+print(lista)  # ['Karolina', 'Mikołaj', 'Maciek', 'Marta', 'Marta', 'Marcin']
+print(lista.index("Marta"))  # indeks: 3
