@@ -67,7 +67,7 @@ print(f'''
 print(type(4 / 2))  # zawsze daje <class 'float'>
 print(4 / 2)  # 2.0
 
-# typy prymitywne - str, int, float, bool
+# typy prymitywne - str, int, float, bool, bytes
 # typ logiczny, boolean, bool
 # prawda, fałsz -> True, False
 # 1 - prawda, 0 - fałsz
@@ -94,5 +94,62 @@ print(bool(x))  # True
 
 x = ""
 print(bool(x))  # False
-x = None # nic, stan nieokreslony - odpowiednik null
-print(bool(x))  # False
+x = None  # nic, stan nieokreślony - odpowiednik null
+
+print(bool(x))  # False# porówanie elementów daje w wyniku typ logiczny
+a = 14
+b = 3
+
+print(f"Wynik porównania {a} > {b} = {a > b}")  # Wynik porównania 14 > 3 = True
+print(f"Wymik porównania {a > b = }")  # Wymik porównania a > b = True
+print("Wynik porównania", a, "<", b, "=", a < b)  # Wynik porównania 14 < 3 = False
+print(f"Wynik porównania {a} < {b} = {a < b}")  # Wynik porównania 14 < 3 = False
+print(f"Wynik porównania {a} <= {b} = {a <= b}")  # Wynik porównania 14 <= 3 = False
+print(f"Wynik porównania {a} >= {b} = {a >= b}")  # Wynik porównania 14 >= 3 = True
+
+print(f"Wynik porównania {a} == {b} = {a == b}")  # == porównanie, Wynik porównania 14 == 3 = False
+print(f"Wynik porównania {a} != {b} = {a != b}")  # != czy różne, Wynik porównania 14 != 3 = True
+
+# operacje logiczne
+# and - i
+print(True and True)  # True
+print(True and False)  # False
+print(False and True)  # False
+print(False and False)  # False
+
+# or - lub
+print(True or True)  # True
+print(True or False)  # True
+print(False or True)  # True
+print(False or False)  # False
+
+# not - negacja
+print(not True)  # False
+print(not False)  # True
+
+my_str = '123456789'
+# A string is numeric if all characters in the string are numeric
+print(my_str.isnumeric())  # True
+#  A string is alpha-numeric if all characters in the string are alpha-numeric
+print(my_str.isalnum())  # True
+# A string is a decimal string if all characters in the string are decimal
+print(my_str.isdecimal())  # True
+#  A string is alphabetic if all characters in the string are alphabetic
+print(my_str.isalpha())  # False
+
+print("------")
+my_str = "abcdefghijkl"
+print(my_str.isalpha())  # True
+print(my_str.isalnum())  # True
+print(my_str.isdecimal())  # False
+print(my_str.isnumeric())  # False
+print(my_str.islower())  # True
+print(my_str.isupper())  # False
+
+my_str3 = "Radek12345"
+print(my_str3.isalpha())  # False
+print(my_str3.isalnum())  # True
+print(my_str3.isdecimal())  # False
+print(my_str3.isnumeric())  # False
+print(my_str3.islower())  # False
+print(my_str3.isupper())  # False
