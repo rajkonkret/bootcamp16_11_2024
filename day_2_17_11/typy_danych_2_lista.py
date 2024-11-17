@@ -60,7 +60,7 @@ print(lista[-6], lista[0])  # Radek Radek
 
 # print(lista[10]) - lista nie posiada elementu o takim indeksie
 # Traceback (most  recent call last):
-#   File "C:\Users\Administrator\PycharmProjects\bootcamp16_11_2024\day_2\typy_danych_2_lista.py", line 61, in <module>
+#   File "C:\Users\Administrator\PycharmProjects\bootcamp16_11_2024\day_2_17_11\typy_danych_2_lista.py", line 61, in <module>
 #     print(lista[10])
 #           ~~~~~^^^^
 # IndexError: list index out of range
