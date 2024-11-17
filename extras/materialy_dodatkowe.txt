@@ -122,6 +122,9 @@ https://www.w3schools.com/python/
 https://www.hackerrank.com/domains/python
 https://alternativeto.net/software/hackerrank-com/?license=free
 https://alternativeto.net/software/hackerrank-com/
+
+zbiory
+https://stackoverflow.com/questions/53949197/isnt-sql-a-left-join-b-just-a
 -------------------
 <b> - Bold text
 <strong> - Important text
