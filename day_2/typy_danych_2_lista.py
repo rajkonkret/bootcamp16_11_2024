@@ -167,3 +167,98 @@ print(f"adres: {id(lista_copy)=}")
 # adres: id(lista)=1746325475712
 # adres: id(lista_4)=1746325475712
 # adres: id(lista_copy)=1746328345216
+
+liczby = [45, 999, 34, 22, 13.34, 687]
+print(liczby)  # [45, 999, 34, 22, 13.34, 687]
+print(type(liczby))  # <class 'list'>
+
+liczby.sort()  # sortowanie
+print(liczby)  # [13.34, 22, 34, 45, 687, 999], posortował oryginalną kolekcję
+
+liczby_a = [45, 999, 34, 22, 13.34, 687, "A"]
+print(liczby_a)  # [45, 999, 34, 22, 13.34, 687, 'A']
+print(type(liczby_a))  # <class 'list'>
+
+# nie zawsze wszystkie metody zadziałają w kolekcjach mieszanych
+# liczby_a.sort() # TypeError: '<' not supported between instances of 'str' and 'int'
+
+lista_osoby = ['radek', 'ola', 'agata', 'lena', 'justyna']
+lista_osoby.sort()
+print(lista_osoby)  # ['agata', 'justyna', 'lena', 'ola', 'radek']
+
+lista_alfabet = ['a', 'z', 'p', 'd']
+lista_alfabet.sort()
+print(lista_alfabet)  # ['a', 'd', 'p', 'z']
+lista_alfabet_pol = ['a', 'z', 'ą', 'ń', 'p', 'd']
+lista_alfabet_pol.sort()
+print(lista_alfabet_pol)  # ['a', 'd', 'p', 'z', 'ą', 'ń']
+print(ord("z"))  # 122
+print(ord("ą"))  # 261
+
+# możemy posortować i odwrócić kolekcję
+lista_osoby.sort(reverse=True)
+print(lista_osoby)  # ['radek', 'ola', 'lena', 'justyna', 'agata']
+
+# odwrócenie kolekcji bez sortowania
+lista_osoby.reverse()
+print(lista_osoby)  # ['agata', 'justyna', 'lena', 'ola', 'radek']
+
+liczby_3 = [3, 8, 5, 12, 1]
+liczby_3.reverse()
+print(liczby_3)  # [1, 12, 5, 8, 3]
+
+print(liczby)
+# nadpisać element czwarty (jaki indeks)
+# wypisać ostatni element po indeks dodanich i ujemnych
+# zrobić slice(wycinanie) jedno dodatnie, jedno ujemne
+# usunąć z listy po indeksie i po elemencie
+liczby[3] = 10000  # czwarty element czyli indeks 3
+print(liczby[-1])  # wypisanie ostatniego elementu, 999
+print(liczby[len(liczby) - 1])  # długosc kolekcji minus 1 wskazuje na ostatni indeks kolekcji
+print(liczby[1:3])  # [22, 34]
+print(liczby[-2:])  # [687, 999]
+
+liczby.remove(34)  # usunięcie po elemencie(wartości)
+print(liczby)  # [13.34, 22, 10000, 687, 999]
+
+print(liczby.pop(2))  # usunięcie po indeksie 2 (to nie jest wartość elementu)
+print(liczby)  # [13.34, 22, 687, 999]
+
+# sortowanie i odwrócenie w jednym kroku
+liczby.sort(reverse=True)
+print(liczby)  # [999, 687, 22, 13.34]
+
+print(liczby[::-1])  # w odwrotnej kolejnoci [13.34, 22, 687, 999]
+print(liczby[0:4:2])  # [start:stop:krok] [999, 22]
+
+# łączenie list, dostajemy nową kolekcję
+print(liczby + liczby_3)  # [999, 687, 22, 13.34, 1, 12, 5, 8, 3]
+liczby_4 = liczby + liczby_3
+print(liczby_4)  # [999, 687, 22, 13.34, 1, 12, 5, 8, 3]
+
+liczby_5 = [1, 2, 3, 4, 5]
+liczby_6 = [6, 7, 8, 9]
+liczby_5.extend(liczby_6)
+print(liczby_5)  # zmienia liczby_5, [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# rozpakowanie sekwencji
+tekst = "Pth on."
+lista_str = list(tekst)
+print(lista_str)  # ['P', 't', 'h', ' ', 'o', 'n', '.']
+
+lista_str_2 = [tekst]
+print(lista_str_2)  # ['Pth on.']
+
+lista_str_pusta = []
+lista_str_pusta.append(tekst)
+print(lista_str_pusta)  # ['Pth on.']
+
+# rozpakowanie sekwencji, dodanie elemetów kolekcji jako kolejne elementy kolekcji
+lista_str_pusta = []
+lista_str_pusta.extend(tekst)
+print(lista_str_pusta)  # ['P', 't', 'h', ' ', 'o', 'n', '.']
+
+# zamiana listy na krotkę, tuplę
+krotka = tuple(liczby)
+print(krotka)  # (999, 687, 22, 13.34)
+print(type(krotka))  # <class 'tuple'>
