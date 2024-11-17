@@ -1,0 +1,52 @@
+1. Stwórz Listę
+Stwórz listę zawierającą pięć różnych owoców.
+
+2. Znajdź Drugi Element Listy
+Mając listę, znajdź drugi element listy.
+
+3. Zmień Element w Liście
+Zmień trzeci element listy na "malina".
+
+4. Stwórz Krotkę
+Stwórz krotkę zawierającą trzy różne kolory.
+
+5. Wybierz Ostatni Element Krotki
+Mając krotkę, wybierz jej ostatni element.
+
+8. Stwórz String Zawierający Twoje Imię i Nazwisko
+Stwórz string "Jan Kowalski".
+
+9. Podziel String na Imię i Nazwisko
+Podziel powyższy string na dwa osobne stringi: imię i nazwisko.
+
+10. Użyj F-stringa do Połączenia Tekstu
+Stwórz string "Mam na imię Jan i mam 25 lat" używając f-stringa.
+1. Zadanie: Znajdź Długość Listy
+Mając listę [1, 2, 3, 4, 5], znajdź jej długość.
+
+2. Zadanie: Połącz Dwie Listy
+Mając dwie listy, na przykład [1, 2, 3] i [4, 5, 6], połącz je w jedną.
+
+3. Zadanie: Dodaj Element na Końcu Listy
+Dodaj nowy element na końcu listy [1, 2, 3], na przykład 4.
+
+4. Zadanie: Wybierz Element z Krotki
+Mając krotkę (1, 2, 3, 4, 5), wybierz trzeci element.
+
+5. Zadanie: Odwróć Listę
+Odwróć kolejność elementów w liście [1, 2, 3, 4, 5].
+
+6. Zadanie: Znajdź Maksymalny Element w Liście
+Znajdź największy element w liście [1, 2, 3, 4, 5].
+
+7. Zadanie: Formatowanie Stringa
+Stwórz string "Python", a następnie dodaj do niego string " jest super!", tworząc pełne zdanie.
+
+8. Zadanie: Zastąp Słowo w Stringu
+Mając string "Lubię Pythona", zastąp słowo "Pythona" słowem "programowanie".
+
+9. Zadanie: Wyodrębnij Podstring
+Wyodrębnij słowo "Python" ze stringa "Lubię Pythona".
+
+10. Zadanie: Stwórz Listę Liczb Nieparzystych
+Stwórz listę zawierającą pierwsze pięć liczb nieparzystych.
