@@ -66,3 +66,33 @@ print(f'''
 
 print(type(4 / 2))  # zawsze daje <class 'float'>
 print(4 / 2)  # 2.0
+
+# typy prymitywne - str, int, float, bool
+# typ logiczny, boolean, bool
+# prawda, fałsz -> True, False
+# 1 - prawda, 0 - fałsz
+
+czy_znasz_pythona = True
+print(czy_znasz_pythona)  # True
+print(type(czy_znasz_pythona))  # <class 'bool'>, typ logiczny
+
+print(int(czy_znasz_pythona))  # 1
+czy_znasz_pythona = False
+print(int(czy_znasz_pythona))  # 0
+
+x = 1
+print(bool(x))  # True
+x = 0
+print(bool(x))  # False
+
+x = 100
+print(bool(x))  # True
+x = -10
+print(bool(x))  # True
+x = "radek"
+print(bool(x))  # True
+
+x = ""
+print(bool(x))  # False
+x = None # nic, stan nieokreslony - odpowiednik null
+print(bool(x))  # False
