@@ -117,6 +117,12 @@ spam %= 1    spam = spam % 1
 \033[4m: Set text style to underline
 print("\033[31mHello\033[0m") - kolorki
 
+
+https://www.w3schools.com/python/
+https://www.hackerrank.com/domains/python
+https://alternativeto.net/software/hackerrank-com/?license=free
+https://alternativeto.net/software/hackerrank-com/
+-------------------
 <b> - Bold text
 <strong> - Important text
 <i> - Italic text
