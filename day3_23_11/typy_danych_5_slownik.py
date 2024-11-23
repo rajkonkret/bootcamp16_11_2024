@@ -186,15 +186,15 @@ print(dict_small)  # {'x': 3, 'y': 3, 'z': 7}
 # input() - pobranie danych od użytkownika
 # odp = input("Podaj imię")
 # print(odp)
-ang_pol = {'name': 'imie', 'cat': 'kot', 'water': "woda"}
-print('------ Słownik pol-ang ------')
-print('Mam takie słowka w słowniku', ang_pol.keys())
-odp = input("Podaj słówko do przetłumaczenia")
-# print(f"{odp.strip()} to: {ang_pol[odp.strip().lower()]}")
-# print(f"{odp.strip()} to: {ang_pol[odp.strip().casefold()]}")
-
-print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold())}")
-print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold(), "nie znam takiego słowa")}")
+# ang_pol = {'name': 'imie', 'cat': 'kot', 'water': "woda"}
+# print('------ Słownik pol-ang ------')
+# print('Mam takie słowka w słowniku', ang_pol.keys())
+# odp = input("Podaj słówko do przetłumaczenia")
+# # print(f"{odp.strip()} to: {ang_pol[odp.strip().lower()]}")
+# # print(f"{odp.strip()} to: {ang_pol[odp.strip().casefold()]}")
+#
+# print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold())}")
+# print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold(), "nie znam takiego słowa")}")
 # Podaj słówko do przetłumaczenia Name
 #  Name to: imie
 #  Name to: imie
@@ -214,3 +214,37 @@ tekst2 = "GROSS"
 
 print(tekst1.lower() == tekst2.lower())  # False
 print(tekst1.casefold() == tekst2.casefold())  # True
+
+# a = input("Podaj liczbę")  # input zawsze zwraca str
+# print(a)
+# print(type(a))
+# # 234
+# # <class 'str'>
+# b = input("Podaj drugą liczbę")
+# print("Wynik", int(a) + int(b))  # int() - rzutowanie na int
+# Podaj liczbę1
+# 1
+# <class 'str'>
+# Podaj drugą liczbę2
+# Wynik 3
+
+# inny sposób
+# a = float(input("Podaj liczbę"))
+# b = float(input("Podaj drugą liczbę"))
+# print(a + b)
+# Podaj liczbę4
+# Podaj drugą liczbę5
+# 9.0
+
+print(my_dict_copy)
+# {'Name': 'Radek', 'ID': 12345, 'DDB': 1995, 'Address': 'Warsaw Centrum', 'Job': 'Developer', 'cpi': 3.41}
+print("Name" in my_dict_copy)  # True
+print("Temat" in my_dict_copy)  # False
+
+# Return True if bool(x) is True for all values x in the iterable.
+# czy nie ma jakiegokolwiek elementu dającego w wyniku bool() False
+print(all(my_dict_copy))  # True
+
+# Return True if bool(x) is True for any x in the iterable.
+# czy nie ma conajmniej jednego elementu dającego w wyniku bool() False
+print(any(my_dict_copy))  # True
