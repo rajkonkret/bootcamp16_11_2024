@@ -80,3 +80,103 @@ a /= 2  # a = a / 2
 print(a)  # 1.0 float
 a %= 2
 print(a)  # 1.0
+
+imiona = ['Radek', 'Tomek', "Zenek", "Zbyszek"]
+for p in imiona:
+    print(p)
+# Radek
+# Tomek
+# Zenek
+# Zbyszek
+
+print(p)  # Zbyszek, globalne zmienna
+
+# wyświetlic z listy
+# 0 Radek
+for i in range(len(imiona)):  # range(4) -> 0...3
+    print(i, imiona[i])
+# 0 Radek
+# 1 Tomek
+# 2 Zenek
+# 3 Zbyszek
+
+for p in imiona:
+    print(imiona.index(p), p)
+# 0 Radek
+# 1 Tomek
+# 2 Zenek
+# 3 Zbyszek
+
+# enumerate() - zwraca element kolekcji i jego pozycję
+for i in enumerate(imiona):
+    print(i)
+# (0, 'Radek')
+# (1, 'Tomek')
+# (2, 'Zenek')
+# (3, 'Zbyszek')
+a, b = (0, 'Radek')  # rozpakowanie krotki
+print(a, b)
+
+for pozycja, osoba in enumerate(imiona):
+    print(pozycja, osoba)
+# 0 Radek
+# 1 Tomek
+# 2 Zenek
+# 3 Zbyszek
+
+for p, o in enumerate(imiona, start=1):
+    print(p, o)
+# 1 Radek
+# 2 Tomek
+# 3 Zenek
+# 4 Zbyszek
+
+ludzie = ['Radek', 'Janek', "Tomek", "Marek"]
+wiek = [45, 40, 18, 23]
+# wypisaniu w takiej formie Radek 45
+
+for i in range(len(ludzie)):
+    print(ludzie[i], wiek[i])
+# Radek 45
+# Janek 40
+# Tomek 18
+# Marek 23
+
+ludzie = ['Radek', 'Janek', "Tomek", "Marek", "Ania"]
+wiek = [45, 40, 18, 23]
+# for i in range(len(ludzie)):
+#     print(ludzie[i], wiek[i]) # IndexError: list index out of range
+
+# zip() - łączenie kolekcji
+for i in zip(ludzie, wiek):
+    print(i)
+# ('Radek', 45)
+# ('Janek', 40)
+# ('Tomek', 18)
+# ('Marek', 23)
+for l, w in zip(ludzie, wiek):
+    print(l, w)
+# Radek 45
+# Janek 40
+# Tomek 18
+# Marek 23
+
+# 0 Radek 45
+for i in enumerate(zip(ludzie, wiek)):
+    print(i)
+# (0, ('Radek', 45))
+# (1, ('Janek', 40))
+# (2, ('Tomek', 18))
+# (3, ('Marek', 23))
+a, b = (0, ('Radek', 45))
+print(a, b)  # 0 ('Radek', 45)
+c, d = ('Radek', 45)
+print(c, d)  # Radek 45
+(i, (l, w)) = (0, ('Radek', 45))  # nawiasy wskazują wewnętrzną krotkę
+print(i, l, w)  # 0 Radek 45
+for i, (l, w) in enumerate(zip(ludzie, wiek)):
+    print(i, l, w)
+# 0 Radek 45
+# 1 Janek 40
+# 2 Tomek 18
+# 3 Marek 23
