@@ -175,3 +175,42 @@ print(f"{id(my_dict_copy)=}")  # id(my_dict_copy)=2438131183936
 dict_small = {"x": 3}
 dict_small.update([('y', 3), ('z', 7)])
 print(dict_small)  # {'x': 3, 'y': 3, 'z': 7}
+
+# napisac program, który będzie działął jak słownik angielsko-polski
+# podajemy wyraz -> tłumaczenie
+# słownik z elementami czyli pary typu ang slowo - pol
+# wypisac uzytkownikowi jakie słowa znamy - klucze
+# pobrac słowo od uzytkownika
+# wyświetlic tłumaczenie
+
+# input() - pobranie danych od użytkownika
+# odp = input("Podaj imię")
+# print(odp)
+ang_pol = {'name': 'imie', 'cat': 'kot', 'water': "woda"}
+print('------ Słownik pol-ang ------')
+print('Mam takie słowka w słowniku', ang_pol.keys())
+odp = input("Podaj słówko do przetłumaczenia")
+# print(f"{odp.strip()} to: {ang_pol[odp.strip().lower()]}")
+# print(f"{odp.strip()} to: {ang_pol[odp.strip().casefold()]}")
+
+print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold())}")
+print(f"{odp.strip()} to: {ang_pol.get(odp.strip().casefold(), "nie znam takiego słowa")}")
+# Podaj słówko do przetłumaczenia Name
+#  Name to: imie
+#  Name to: imie
+# sunny to: None
+# sunny to: nie znam takiego słowa
+
+# casefold()
+""" Return a version of the string suitable for caseless comparisons. """
+# ß -> ss
+# Przekształca wszystkie wielkie litery na ich odpowiedniki w małych literach.
+# Dostosowuje tekst zgodnie z zasadami językowymi Unicode, np.:
+# Znaki specjalne, takie jak „ß” w języku niemieckim, są przekształcane na „ss”.
+# Znaki z akcentami mogą być uproszczone w zależności od kontekstu.
+
+tekst1 = "groß"
+tekst2 = "GROSS"
+
+print(tekst1.lower() == tekst2.lower())  # False
+print(tekst1.casefold() == tekst2.casefold())  # True
