@@ -43,3 +43,40 @@ lista_wylosowane.sort()
 print(lista_wylosowane)
 # [46, 12, 7, 10, 45, 49]
 # [7, 10, 12, 45, 46, 49]
+
+for i in range(10):
+    if i % 2 == 0:  # % modulo, reszta z dzielenia
+        print(i, "parzysta")
+# 0 parzysta
+# 2 parzysta
+# 4 parzysta
+# 6 parzysta
+# 8 parzysta
+
+# list comprehension
+lista3 = [j for j in range(1, 10) if j % 2 == 0]
+print(lista3)  # [2, 4, 6, 8]
+
+for c in lista3:
+    if c == 2:
+        c += 1  # c = c + 1
+        print("Tylko jeśli c=2")
+    print("Przy każdym elemencie pętli", c)
+# [2, 4, 6, 8]
+# Tylko jeśli c=2
+# Przy każdym elemencie pętli 3
+# Przy każdym elemencie pętli 4
+# Przy każdym elemencie pętli 6
+# Przy każdym elemencie pętli 8
+
+a = 1
+a += 1  # a = a + 1
+print(a)  # 2
+a -= 1  # a = a - 1
+print(a)  # 1
+a *= 2  # a = a * 2
+print(a)  # 2
+a /= 2  # a = a / 2
+print(a)  # 1.0 float
+a %= 2
+print(a)  # 1.0
