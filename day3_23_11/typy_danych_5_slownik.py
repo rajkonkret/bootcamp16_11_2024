@@ -80,3 +80,51 @@ list_unique = list(dict_unique)
 print(list_unique)  # [1, 2, 3, 4, 5]
 
 print(list(dict.fromkeys(keys)))  # w jednej linijce, [1, 2, 3, 4, 5]
+
+# wypisanie wartości dla kluczy
+print(my_dict["A"])  # one
+# powypisywac ze słowników wybrane klucze
+print(dict_with_integer[1])  # one
+print(dict_with_all['C'])  # {'age', 10, 'Name'}
+
+# print(my_dict4['e'])  # KeyError: 'e'
+
+print(my_dict4.get("a"))  # [10, 20, 30]
+print(my_dict4.get("e"))  # None
+# możemy ustawić wartość domyślną jaka będzie zwracana gdy nie ma klucza w słowniku
+print(my_dict4.get("e", "Nie ma"))  # Nie ma
+
+my_dict5 = {'Name': "Radek", "ID": 12345, "DDB": 1991, 'Address': "Warsaw"}
+print(my_dict5)  # {'Name': 'Radek', 'ID': 12345, 'DDB': 1991, 'Address': 'Warsaw'}
+
+print(my_dict5['DDB'])  # 1991
+
+# nadpisanie wartości dla klucza
+my_dict5['DDB'] = '1980'
+print(my_dict5)  # {'Name': 'Radek', 'ID': 12345, 'DDB': '1980', 'Address': 'Warsaw'}
+my_dict5['Address'] = "Warsaw Centrum"
+print(my_dict5)  # {'Name': 'Radek', 'ID': 12345, 'DDB': '1980', 'Address': 'Warsaw Centrum'}
+
+dict1 = {"DDB": 1995}
+print(dict1)  # {'DDB': 1995}
+print(type(dict1))  # <class 'dict'>
+
+# update słownika innym słownikiem
+my_dict5.update(dict1)
+print(my_dict5)
+# {'Name': 'Radek', 'ID': 12345, 'DDB': 1995, 'Address': 'Warsaw Centrum'}, podmieniło wartość dla klucza DDB
+
+# dodanie klucza do słownika i wartości
+my_dict5['Job'] = "Developer"
+print(my_dict5)
+# {'Name': 'Radek', 'ID': 12345, 'DDB': 1995, 'Address': 'Warsaw Centrum', 'Job': 'Developer'}
+
+dict2 = {'cpi': 3.41}  # float, zmiennoprzecinkowe
+print(dict2)  # {'cpi': 3.41}
+
+# update słownika
+# dodanie klucza jesli taki jescze nie istnieje w docelowym słowniku
+# docelowy czyli my_dict5
+my_dict5.update(dict2)
+print(my_dict5)
+# {'Name': 'Radek', 'ID': 12345, 'DDB': 1995, 'Address': 'Warsaw Centrum', 'Job': 'Developer', 'cpi': 3.41}
