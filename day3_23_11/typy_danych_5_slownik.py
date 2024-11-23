@@ -214,3 +214,4 @@ tekst2 = "GROSS"
 
 print(tekst1.lower() == tekst2.lower())  # False
 print(tekst1.casefold() == tekst2.casefold())  # True
+#
