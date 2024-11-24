@@ -219,3 +219,38 @@ for name, age in zipped_tuple:
 # Tomek 18
 # Marek 23
 # Ania NONE
+
+for i in range(0, 10, 2):  # (start, stop, krok)
+    print(i)
+# 0
+# 2
+# 4
+# 6
+# 8
+for i in range(-10, 0, 2):
+    print(i)
+# -10
+# -8
+# -6
+# -4
+# -2
+
+for i in range(10, 0, -2):  # krok ujemny, krok w tył(dół)
+    print(i)
+# 10
+# 8
+# 6
+# 4
+# 2
+
+parzyste = [i for i in range(0, 10, 2)]
+print(parzyste)  # [0, 2, 4, 6, 8]
+
+ang_pol = {'name': 'imie', 'cat': 'kot', 'water': "woda"}
+pol_ang = {}
+print(ang_pol.items())  # dict_items([('name', 'imie'), ('cat', 'kot'), ('water', 'woda')])
+for k, v in ang_pol.items():
+    pol_ang[v] = k
+print(pol_ang)  # {'imie': 'name', 'kot': 'cat', 'woda': 'water'}
+
+print({v: k for k, v in ang_pol.items()})  # {'imie': 'name', 'kot': 'cat', 'woda': 'water'}
