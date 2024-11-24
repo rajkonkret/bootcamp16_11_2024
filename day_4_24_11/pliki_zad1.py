@@ -40,6 +40,7 @@ with open("test.log", "a", encoding='utf-8') as file:
     file.write("Dodane\n")
     file.write("Dodane\n")
     file.write("Dośdane\n")
+    file.write("Dośźąćńdane\n")
 
 with open("test.log", "r", encoding='utf-8') as f:
     lines = f.read()
