@@ -1,6 +1,7 @@
 # pętla - możliwość wykonania tego samego fragmentu kodu wielokrotnie
 # for - pętla iteracyjna
 import random
+from itertools import zip_longest
 
 for i in range(10):  # od 0 do 9
     print(i)
@@ -180,3 +181,41 @@ for i, (l, w) in enumerate(zip(ludzie, wiek)):
 # 1 Janek 40
 # 2 Tomek 18
 # 3 Marek 23
+
+zipped = zip_longest(ludzie, wiek, fillvalue="NONE")
+print(type(zipped))  # <class 'itertools.zip_longest'>
+zipped_tuple = tuple(zipped)
+print(zipped_tuple)  # (('Radek', 45), ('Janek', 40), ('Tomek', 18), ('Marek', 23), ('Ania', 'NONE'))
+# iterator - pozwala na asekwencyjne dostęp do danych
+# po odczytaniu danych  nie są już dostępne
+# Pętle po zipped nie odczytają danych
+for i in zipped:
+    print(i)
+# ('Radek', 45)
+# ('Janek', 40)
+# ('Tomek', 18)
+# ('Marek', 23)
+# ('Ania', 'NONE')
+
+print("----------")
+for o, w in zipped:
+    print(o, w)
+
+print("*" * 25)
+for i in zipped_tuple:
+    print(i)
+# (('Radek', 45), ('Janek', 40), ('Tomek', 18), ('Marek', 23), ('Ania', 'NONE'))
+# ----------
+# *************************
+# ('Radek', 45)
+# ('Janek', 40)
+# ('Tomek', 18)
+# ('Marek', 23)
+# ('Ania', 'NONE')
+for name, age in zipped_tuple:
+    print(name, age)
+# Radek 45
+# Janek 40
+# Tomek 18
+# Marek 23
+# Ania NONE
