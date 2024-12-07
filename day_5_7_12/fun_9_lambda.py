@@ -58,3 +58,59 @@ print(wiek(10))  # nastolatek
 print(wiek(17))  # nastolatek
 print(wiek(18))  # dorosły
 print(wiek(25))  # dorosły
+
+# mapowanie
+lista = [1, 2, 3, 45, 67, 78, 100, 200, 300]
+
+lista_wyn = []
+for i in lista:
+    lista_wyn.append(i * 2)
+print(lista_wyn)  # [2, 4, 6, 90, 134, 156, 200, 400, 600]
+
+print([i * 2 for i in lista])  # [2, 4, 6, 90, 134, 156, 200, 400, 600]
+
+
+# print(lista * 2)# [1, 2, 3, 45, 67, 78, 100, 200, 300, 1, 2, 3, 45, 67, 78, 100, 200, 300]
+
+def zmien(x):
+    return x * 2
+
+
+listy_wyn_f = []
+for i in lista:
+    listy_wyn_f.append(zmien(i))
+
+print(listy_wyn_f)  # [2, 4, 6, 90, 134, 156, 200, 400, 600]
+
+# map() - mapowanie, zmienia dane wg zadanej funkcji
+print(f"Zastosowanie map(): {list(map(zmien, lista))}")
+# Zastosowanie map(): [2, 4, 6, 90, 134, 156, 200, 400, 600]
+# Lambda jako funkcja anonimowa, uzyta w miejscu deklaracji
+print(f"Zastosowanie map(): {list(map(lambda x: x * 2, lista))}")
+print(f"Zastosowanie map(): {list(map(lambda x: x * 4, lista))}")
+print(f"Zastosowanie map(): {list(map(lambda x: x * 12, lista))}")
+# Zastosowanie map(): [12, 24, 36, 540, 804, 936, 1200, 2400, 3600]
+print(f"Zastosowanie map(): {list(map(lambda x: x * 1.1, lista))}")
+# Zastosowanie map(): [1.1, 2.2, 3.3000000000000003, 49.50000000000001,
+# 73.7, 85.80000000000001, 110.00000000000001, 220.00000000000003, 330.0]
+
+
+# filtrowanie danych
+# wyciągnie elementu spełniającego warunek
+# parzyste
+lista_parzyste = []
+for i in lista:
+    if i % 2 == 0:
+        lista_parzyste.append(i)
+print(lista_parzyste)  # [2, 78, 100, 200, 300]
+
+# filter()
+print(f'Zastosowanie filter() {list(filter(lambda x: x < 3, lista))}')  # Zastosowanie filter() [1, 2]
+print(f'Zastosowanie filter() {list(filter(lambda x: x > 15, lista))}')
+# Zastosowanie filter() [45, 67, 78, 100, 200, 300]
+# x > 5 i x < 200
+print(
+    f'Zastosowanie filter() {list(filter(lambda x: x > 5 and x < 200, lista))}')  # Zastosowanie filter() [45, 67, 78, 100]
+print(f'Zastosowanie filter() {list(filter(lambda x: 5 < x < 200, lista))}')  # Zastosowanie filter() [45, 67, 78, 100]
+print(f'Zastosowanie filter() {list(filter(lambda x: x % 2 == 0, lista))}')
+# Zastosowanie filter() [2, 78, 100, 200, 300]
