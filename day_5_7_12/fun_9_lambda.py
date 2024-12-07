@@ -114,3 +114,23 @@ print(
 print(f'Zastosowanie filter() {list(filter(lambda x: 5 < x < 200, lista))}')  # Zastosowanie filter() [45, 67, 78, 100]
 print(f'Zastosowanie filter() {list(filter(lambda x: x % 2 == 0, lista))}')
 # Zastosowanie filter() [2, 78, 100, 200, 300]
+
+
+list2 = ['one', 'TWO', 'three', 'FOUR']
+print(f"Filter: {list(filter(lambda x: x.isupper(), list2))}")
+print(f"Filter: {list(filter(lambda x: x.islower(), list2))}")
+# Filter: ['TWO', 'FOUR']
+# Filter: ['one', 'three']
+
+list3 = ['one', 'two2', 'three3', '88', '99', '102', '1.23']
+numeric = list(filter(lambda x: x.isnumeric(), list3))
+print(f"Numeric: {numeric}")  # Numeric: ['88', '99', '102']
+
+alpha = list(filter(lambda x: x.isalpha(), list3))
+print(f"Alpha: {alpha}")  # Alpha: ['one']
+
+mix = list(filter(lambda x: x.isnumeric() and not x.isalpha(), list3))
+print(f"Mix: {mix}")  # Mix: ['88', '99', '102']
+
+alphanum = list(filter(lambda x: x.isalnum(), list3))
+print(f"Mix: {alphanum}")  # Mix: ['one', 'two2', 'three3', '88', '99', '102']
