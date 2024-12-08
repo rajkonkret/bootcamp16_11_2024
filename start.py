@@ -23,3 +23,5 @@ pk.info()
 # # strowanie widocznością elelemntów pakietu
 # __all__ = ['info']
 pakiet.info()  # Jestem pakietem
+
+pakiet.pozegnanie()  # Do zobaczenia
