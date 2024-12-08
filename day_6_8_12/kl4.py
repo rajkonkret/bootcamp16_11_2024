@@ -20,6 +20,25 @@ class Dom:
     def wyswietl_metraz(self):
         print(f"Mam metraz: {self.__metraz}")
 
+    def zmien_okna(self):
+        odp = int(input("Podaj liczbę okien"))
+        self.__liczba_okien = odp
+        self.wyswietl_okna()
+
+    def zmien_metraz(self):
+        odp = int(input("Podaj nowy metraż"))
+        self.__metraz = odp
+        self.wyswietl_metraz()
+
+    def zmien_kolor(self):
+        odp = input("Podaj nowy kolor")
+        self.__kolor = odp
+        self.wyswietl_kolor()
+        self.__farba()
+
+    def __farba(self):
+        print("Zabrakło farby")
+
 
 dom1 = Dom(200, "czerwony", 11)
 dom1.wyswietl_metraz()
@@ -28,3 +47,4 @@ dom1.wyswietl_okna()
 # Mam metraz: 200
 # Mam kolor: czerwony
 # Mam 11 okna/okien
+dom1.zmien_kolor()
