@@ -1,0 +1,19 @@
+zad1
+--------
+# stworzenie ksiazki telefonicznej z wykorzystanie petli while True
+# dodaj kontakt, usun kontakt, wyszukaj kontakt, wyswietl kontakty
+
+
+
+
+
+
+
+
+zad2
+# -----------
+# stworzyc system zarzadzania biblioteką klasa Book
+# dodnie ksiazki, wypozyczenie ksiazki, zwracanie ksiązki
+# obsłużyc błedy
+# Dodac Library i usera
+---------------
