@@ -70,3 +70,13 @@ or2.polowanie()
 kur2.dziobanie()
 # Tu Orzel bielik Rozpoczynam polowanie
 # Tu Kura domowa Idę sobie podziobać
+
+# polimorfizm - obiekty róznych klas mają wspolne cechy
+# klasa abstrakcyjna mocniej je akcentuje
+lista = [or2, kur2]
+for i in lista:
+    print(i.__class__.__name__, i.wydaj_odglos())
+# Kier kir kier
+# Orzel None
+# Ko ko ko ko ko
+# Kura None
