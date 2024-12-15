@@ -21,6 +21,7 @@ class Person:
     def greet(self):
         print(self.first_name)
 
+
 if __name__ == '__main__':
     p1 = Person("Jan", "Kowalski", 1)
     print(p1)  # Person(first_name='Jan', last_name='Kowalski', id=1)
