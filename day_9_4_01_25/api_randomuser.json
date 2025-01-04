@@ -1,0 +1,66 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Miss",
+        "first": "Damaris",
+        "last": "Wild"
+      },
+      "location": {
+        "street": {
+          "number": 880,
+          "name": "Drosselweg"
+        },
+        "city": "Pappenheim",
+        "state": "Niedersachsen",
+        "country": "Germany",
+        "postcode": 58192,
+        "coordinates": {
+          "latitude": "-55.1628",
+          "longitude": "169.2934"
+        },
+        "timezone": {
+          "offset": "-2:00",
+          "description": "Mid-Atlantic"
+        }
+      },
+      "email": "damaris.wild@example.com",
+      "login": {
+        "uuid": "3f5613a8-8e5e-4b17-887d-14a55cb6e414",
+        "username": "ticklishbird338",
+        "password": "jackjack",
+        "salt": "4u6SgEpF",
+        "md5": "64dd316d2470cc555e30e6b8d2dc46fb",
+        "sha1": "b594dab557143ccab8532de9b33439e54020bf59",
+        "sha256": "c1b76a9c63f9537910f650196f7aa805c518c76d74328f4bc4e49a7227531d81"
+      },
+      "dob": {
+        "date": "1982-06-05T16:48:18.358Z",
+        "age": 42
+      },
+      "registered": {
+        "date": "2008-11-17T16:53:56.389Z",
+        "age": 16
+      },
+      "phone": "0774-8302708",
+      "cell": "0177-4819555",
+      "id": {
+        "name": "SVNR",
+        "value": "28 050682 W 563"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/30.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/30.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/30.jpg"
+      },
+      "nat": "DE"
+    }
+  ],
+  "info": {
+    "seed": "717f58c8f1a1342b",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}
