@@ -1,0 +1,167 @@
+ https://hostovita.pl/blog/porownanie-relacyjnych-systemow-zarzadzania-bazami-danych-sqlite-mysql-postgresql/
+
+Bazy danych
+wyspecjalizowne systemy do przechowywania danych
+posiadają silnik, który wysokoefektywnie pozwala pracowac z danymi zawartymi w bazie danych
+można podzielic bazy danych na relacyjne i nierelacyjne
+
+Bazy relacyjne(RDBNS)
+Przechowują dane w postaci tabel i powiązań między nimi.
+Posługują się za pomocą języka SQL
+Mamy kilka odmian baz danych typu sql
+- sqlite - baza przechowywana w jednym pliku
+Wbudowane aplikacje:
+Wszystkie aplikacje, które będą przenoszone, które nie wymagają rozszerzenia,
+ np lokalne aplikacje dla jednego użytkownika, aplikacji mobilne i gry.
+Wbudowane aplikacje:
+Wszystkie aplikacje, które będą przenoszone, które nie wymagają rozszerzenia,
+ np lokalne aplikacje dla jednego użytkownika, aplikacji mobilne i gry.
+ Kiedy nie używać SQLite
+Aplikacje dla wielu użytkowników:
+Jeżeli pracujesz nad aplikacją, w której będzie wiele klientów korzystających z jednej i tej samej bazy danych,
+lepiej wybrać bardziej funkcjonalny SZBD (na przykład MySQL), niż SQLite.
+Aplikacje wymagające dużej ilości wpisów
+Jedną z największych ograniczeń SQLite jest operacja zapisu.
+Ten SZBD pozwala tylko na jedną operację zapisu w danym momencie, a więc ma ograniczoną przepustowość.
+-------------
+
+- mysql - uproszczona baza danych (brak pewnych funkcjonalności)
+Zalety MySQL
+Łatwy w obsłudze:
+MySQL instaluje się bardzo łatwo. Narzędzia innych firm,
+w tym wizualne (GUI) robią go niezwykle prostym, aby rozpocząć pracę z bazą danych.
+Funkcjonalny:
+MySQL obsługuje wiele funkcji SQL, które istnieją w SZBD- bezpośrednio lub pośrednio.
+
+Bezpieczeństwo:
+Wiele funkcji bezpieczeństwa, niektóre dość zaawansowane, są wbudowane w MySQL.
+
+Skalowalny i wydajny:
+MySQL może obsługiwać wiele danych, a ponadto może być skalowany, jeżeli to jest konieczne.
+
+Szybki:
+Rezygnacja z niektórych standardów pozwala MySQL bardzo skutecznie działać,
+zapewniając tym zwiększenie szybkości działania.
+Wady MySQL
+
+Znane ograniczenia:
+Zgodnie z projektem, MySQL nie zamierza robić wszystko, a chodzi o ograniczeniach funkcjonalnych,
+że niektóre aplikacje mogą wymagać.
+
+Kwestia wiarygodności:
+Niektóre funkcje obsługiwane z MySQL (np. linki, operacji, audyt, itp.) sprawia,
+że jest mniej wiarygodny w porównaniu z innymi SZBD.
+
+Stagnacja rozwoju:
+Chociaż MySQL nadal jest techniczny open-source produkt,
+są reklamacje dotyczące procesu rozwoju od momentu jego zakupu.
+Jednak, należy zauważyć że istnieją pewne bazy danych MySQL na podstawie zintegrowanych baz danych,
+które dodają wartość na standardowej instalacji MySQL (na przykład MariaDB  na pełnej licencji GPL).
+Licencja:
+Do zastosowań komercyjnych wymaga zakupu licencji
+
+Kiedy używać MySQL
+
+Rozproszone operacje:
+Kiedy potrzebujesz więcej niż to, co może zaoferować SQLite, w tym MySQL w stosie wdrażania,
+ jak i każdy oddzielny serwer bazy danych, przynosi dużo wolnej pamięci wraz z niektórymi dodatkowymi funkcjami.
+
+Wysoki poziom bezpieczeństwa:
+Funkcje zabezpieczeń MySQL zapewniają właściwą ochronę dostępu do danych (i stosowania) w prosty sposób.
+
+Strony internetowe i aplikacji internetowe:
+Zdecydowana większość stron internetowych (i aplikacji internetowych) mogą  pracować na MySQL,
+pomimo ograniczeń. Te elastyczne i nieco skalowalne narzędzie jest proste i łatwe w obsłudze
+– co okazuje się bardzo pomocne w dłuższej perspektywie.
+Niestandardowe rozwiązania:
+Jeśli pracujemy na bardzo specyficzne i bardzo niestandardowe rozwiązanie,
+MySQL może iść według twoich reguł dzięki bogatemu ustawieniu konfiguracyjnym i trybów pracy.
+Kiedy nie używać MySQL
+SQL zgodności:
+Ponieważ MySQL nie realizuje pełny standard SQL, narzędzie to nie jest całkowicie zgodne z SQL.
+Jeżeli może zajść potrzeba integracji z takim SZBD, przełączanie z MySQL nie będzie łatwe.
+Konkurencja:
+Chociaż MySQL i niektóre mechanizmy przechowywania wykonują bardzo dobrze odczyt operacji,
+jednoczesny odczyt z zapis może być problematyczny.
+
+Brak cech:
+Ponownie, w zależności od wyboru mechanizmu bazy danych MySQL może brakować niektórych funkcji,
+takich jak wyszukiwanie pełnotekstowe.
+
+- postgresql - popularna baza danych do zastosowań komercyjnych
+Kiedy używać PostgreSQL
+Kiedy używać PostgreSQL
+
+Integralność danych:
+Gdy niezawodność i integralność danych są absolutną koniecznością, bez wymówek, PostgreSQL jest lepszym wyborem.
+Skomplikowane procedury niestandardowe:
+Jeśli potrzebujesz bazy danych do wykonania procedur niestandardowych,
+PostgreSQL jest rozszerzalnym i jest lepszym wyborem.
+Integracja:
+W przyszłości, jeżeli jest szansa,
+z konieczności wynikającej z migracji całego systemu bazy danych do zasadności rozwiązania (np Oracle),
+PostgreSQL będzie najbardziej posłuszną i łatwą w obsłudze bazę dla przełącznika.
+Złożone projekty:
+W porównaniu z innymi implementacjami open source i darmowymi SZBD,
+ dla złożonych projektów baz danych PostgreSQL oferuje najbardziej,
+ z punktu widzenia funkcjonalności i możliwości, nie rezygnując z innych cennych zasobów.
+
+Prędkość:
+Jeżeli wszystko czego potrzebujesz, to szybki odczyt operacji, PostgreSQL nie jest takim narzędziem.
+
+Prosty zestaw UPS:
+O ile nie wymaga absolutnej integralności danych, zgodności z ACID lub skomplikowanych wzorów,
+PostgreSQL może być śmiertelny dla prostych ustawień.
+
+Replikacja:
+Jeżeli nie jesteś gotówy poświęcić czas, energię i zasoby, aby osiągniąć replikację w MySQL,
+to może być łatwiejsze dla tych, którzy nie mają doświadczenia w administracji baz danych i systemów.
+
+- MSSQL - baza sql firmy Microsoft(ma swoje szcególne rozwiązania)
+- Oracle - komercyjna baza danych, czesto wykorzystywana przy ogromych zbiorach danych
+
+Nierelacyjne bazy danych(NoSql)
+    - dokumentowe:
+        przechowują dane w postaci dokumentów (np.: json)
+        przykład: MongoDB
+    - kolumnowe:
+        Zoptymalizowane do pracy z duża ilości a dancyh rozłożonych na wiele kolumn
+        przykład: Casandra, HBase
+    - typyu klucz-wartość:
+        Przechowują dane jako para klucz wartosc (cache)
+        przykład: Redis
+    - grafowe:
+        Przechowują dane w formie grafów
+        przykład: Amazon Netun
+Obiektowe bazy danych
+    Zapisują dane w formie obiektów
+Hierarchiczne bazy danych
+    Dane zorganizowane w strukture drzewa. ułątwia dostęp do pewnych typów danych
+
+Transakcja – zbiór operacji na bazie danych,
+które stanowią w istocie pewną całość i jako takie powinny być wykonane wszystkie lub żadna z nich[1].
+Warunki jakie powinny spełniać transakcje bardziej szczegółowo opisują zasady
+ACID (atomicity, consistency, isolation, durability – niepodzielność[a], spójność, izolacja, trwałość).
+
+Przykładem transakcji może być transakcja bankowa jaką jest przelew.
+Muszą tu zostać dokonane 2 operacje – zabranie pieniędzy z jednego konta oraz dopisanie ich do drugiego.
+W przypadku niepowodzenia żadna z tych operacji nie powinna być zatwierdzona,
+gdyż zajście tylko jednej powodowałoby nieprawidłowości w bazie danych
+(pojawienie się lub zniknięcie pieniędzy).
+
+Każdy etap transakcji jest logowany, dzięki czemu w razie awarii systemu
+(dzięki zawartości logów) można odtworzyć stan bazy danych sprzed transakcji, która nie została zamknięta.
+
+Część systemów baz danych umożliwia używanie punktów pośrednich (ang. save point),
+ są to zapamiętane w systemie etapy transakcji,
+do których w razie wystąpienia błędu można się wycofać,
+bez konieczności anulowania wszystkich wykonanych działań.
+
+Transakcja składa się zawsze z 3 etapów:
+
+rozpoczęcia
+wykonania
+zamknięcia
+W systemach bazodanowych istotne jest, aby transakcja trwała jak najkrócej,
+ponieważ równolegle może być dokonywanych wiele transakcji i część operacji
+musi zostać wykonana w pewnej kolejności.
