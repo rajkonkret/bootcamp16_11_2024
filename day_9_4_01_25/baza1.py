@@ -1,3 +1,4 @@
+# https://www.sqlite.org/download.html
 # sqlite3 test.db  - otworzenie bazy, stworzy nową gdy nie ma
 # https://www.heidisql.com
 # https://sqlitebrowser.org/dl/
