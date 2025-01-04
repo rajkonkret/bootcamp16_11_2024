@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='us-ascii'?>
+<Catalog>
+    <mobile>
+        <brand>Redmi</brand>
+        <price>6999</price>
+    </mobile>
+    <mobile>
+        <brand>Samsung</brand>
+        <price>9999</price>
+    </mobile>
+    <mobile>
+        <brand>Apple</brand>
+        <price>7999</price>
+    </mobile>
+</Catalog>
