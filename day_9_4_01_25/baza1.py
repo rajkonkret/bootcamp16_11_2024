@@ -34,6 +34,8 @@ import sqlite3
 sql_connection = None
 try:
     sql_connection = sqlite3.connect("sqlite_python.db")
+    # sql_connection = sqlite3.connect("../day_9_4_01_25/sqlite_python.db")
+    # sql_connection = sqlite3.connect(":memory:") # baza danych w pamięci
     cursor = sql_connection.cursor()
     print("Baza danych została podłączona")
 except sqlite3.Error as e:
