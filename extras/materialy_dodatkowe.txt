@@ -190,3 +190,11 @@ python3 manage.py migrate - zatwierdzenie danych w bazie
 pip install pyinstaller
 pyinstaller --onefile --noconsole fun.py
 pyinstaller --onefile --windowed fun.py
+
+
+Biblioteka	Asynchroniczność	Wydajność (przy wielu zapytaniach)	Łatwość użycia	HTTP/2
+requests	Nie             	Średnia	                            Bardzo łatwa	Nie
+httpx	    Tak             	Wysoka	                            Łatwa	        Tak
+aiohttp	    Tak	                Wysoka	                            Średnia	        Tak
+urllib3	    Nie             	Wysok (w synchronicznym środowisku)	Łatwa	        Tak
+grequests	Nie                 (ale równoległe)  Wysoka	        Łatwa	        Nie
