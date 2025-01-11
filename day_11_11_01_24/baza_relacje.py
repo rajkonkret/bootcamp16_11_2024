@@ -15,7 +15,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 from sqlalchemy.orm import relationship, sessionmaker, declarative_base
 
-engine = create_engine('sqlite:///adress_book.db', echo=True)
+engine = create_engine('sqlite:///adress_book.db', echo=False)
 Base = declarative_base()
 
 
@@ -46,4 +46,70 @@ class Address(Base):
     def __repr__(self):
         return self.email
 
+
 Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+anakin = Person(name='Anakin', age='38')
+anakin2 = Person(name='Anakin Anakin', age=38)
+anakin2.addresses = [Address(email='anakin@wp.pl')]
+
+# obiekt z adresami, wiecej niz jeden adres
+obi = Person(name='Obi Wan Kenobi', age=45)
+obi.addresses = [
+    Address(email="obi@exmple.com"),
+    Address(email='waaka@wp.pl')
+]
+chewee = Person(name='Chewbacca', age=50)
+chewee.addresses = [
+    Address(email="chewbacca@exmple.com"),
+    Address(email='chewee@wp.pl')
+]
+
+session.add(anakin)
+session.add(anakin2)
+session.add(obi)
+session.add(chewee)
+
+session.commit()
+
+all_ = session.query(Person).all()
+print(all_)
+# [Anakin (id=1), Anakin Anakin (id=2), Anakin (id=3), Anakin Anakin (id=4),
+# Obi Wan Kenobi (id=5), Anakin (id=6), Anakin Anakin (id=7), Obi Wan Kenobi (id=8)]
+
+first = session.query(Person).first()
+print(first)  # Anakin (id=1)
+print(type(first))  # <class '__main__.Person'>
+# wiek i imię?
+print(first.name, first.age)  # Anakin 38
+
+obi_list = session.query(Person).filter(
+    Person.name.like('Obi%')  # WHERE person.name LIKE ?
+).all()
+print(obi_list)
+# id, name, age, email
+# Chewbacca
+
+chwee_list = session.query(Person).filter(
+    Person.name.like('Che%')  # WHERE person.name LIKE ?
+).all()
+print(chewee)
+
+for o in chwee_list:
+    print(o)
+    print(f"{o.id=}, {o.name=}, {o.age=}, {o.addresses=}")
+
+# o.id=31, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+# Chewbacca (id=35)
+# o.id=35, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+# Chewbacca (id=39)
+# o.id=39, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+# Chewbacca (id=43)
+# o.id=43, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+# Chewbacca (id=47)
+# o.id=47, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+# Chewbacca (id=51)
+# o.id=51, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
