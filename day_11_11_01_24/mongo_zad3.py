@@ -4,7 +4,7 @@ import certifi
 
 # python -m pip install "pymongo[srv]"==3.12
 # pip install pymongo[srv]==3.12
-uri = "mongodb+srv://rajkonkret660:2zkqLAEqgsle90O3@cluster0.pjuh61y.mongodb.net/?appName=Cluster0"
+uri = ""
 
 client = MongoClient(uri, server_api=ServerApi('1'), tlsCAFile=certifi.where())
 
