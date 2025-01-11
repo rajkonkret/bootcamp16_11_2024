@@ -30,6 +30,7 @@ class Course(Base):
 
 
 engine = create_engine('sqlite:///kursy.db')
+# engine = create_engine("postgresql://myuser:mypassword@localhost/mydatabase")
 Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
