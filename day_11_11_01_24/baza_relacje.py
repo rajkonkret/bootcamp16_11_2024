@@ -15,7 +15,7 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 from sqlalchemy.orm import relationship, sessionmaker, declarative_base
 
-engine = create_engine('sqlite:///adress_book.db', echo=False)
+engine = create_engine('sqlite:///adress_book.db', echo=True)
 Base = declarative_base()
 
 
@@ -28,7 +28,7 @@ class Person(Base):
     addresses = relationship(
         'Address',
         back_populates='person',
-        order_by='Address.email',
+        order_by='Address.email',  # ORDER BY address.email sortowanie po mailu
         cascade='all, delete-orphan'
     )
 
@@ -113,3 +113,10 @@ for o in chwee_list:
 # o.id=47, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
 # Chewbacca (id=51)
 # o.id=51, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
+
+# Chewbacca (id=63)
+# 2025-01-11 11:28:17,389 INFO sqlalchemy.engine.Engine SELECT address.id AS address_id, address.email AS address_email, address.person_id AS address_person_id
+# FROM address
+# WHERE ? = address.person_id ORDER BY address.email
+# 2025-01-11 11:28:17,389 INFO sqlalchemy.engine.Engine [cached since 0.009233s ago] (63,)
+# o.id=63, o.name='Chewbacca', o.age='50', o.addresses=[chewbacca@exmple.com, chewee@wp.pl]
