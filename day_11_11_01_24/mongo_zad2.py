@@ -1,3 +1,5 @@
+import datetime
+
 from pymongo import MongoClient
 
 client = MongoClient("mongodb://localhost:27017")
@@ -12,7 +14,7 @@ kolekcja = db['uzytkownicy']
 kolekcja.insert_many(
     [
         {'imie': 'Anna', 'nazwisko': 'Nowak', 'wiek': 25},
-        {'imie': 'Paweł', 'nazwisko': 'Wiśniewski', 'wiek': 19},
+        {'imie': 'Paweł', 'nazwisko': 'Wiśniewski', 'wiek': 19, 'czas': datetime.datetime.now().strftime("%d/%m/%Y")},
     ]
 )
 
