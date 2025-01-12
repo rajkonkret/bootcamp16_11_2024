@@ -31,7 +31,7 @@ class ChatBot:
 bot = ChatBot()
 
 if __name__ == '__main__':
-    print("Srating...")
+    print("Starting...")
     print(bot.get_response(
         "Kto jest prezzydentem Polski"))  # Od 6 sierpnia 2020 roku Prezydentem Polski jest Andrzej Duda.
     print(bot.get_response("Kiedy został wybrany"))  # Od 6 sierpnia 2020 roku Prezydentem Polski jest Andrzej Duda.
