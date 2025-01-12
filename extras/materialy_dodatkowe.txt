@@ -213,3 +213,6 @@ httpx	    Tak             	Wysoka	                            Łatwa	        Tak
 aiohttp	    Tak	                Wysoka	                            Średnia	        Tak
 urllib3	    Nie             	Wysok (w synchronicznym środowisku)	Łatwa	        Tak
 grequests	Nie                 (ale równoległe)  Wysoka	        Łatwa	        Nie
+
+figma tkinter:
+https://www.youtube.com/watch?v=bD3rx1tCRGQ
