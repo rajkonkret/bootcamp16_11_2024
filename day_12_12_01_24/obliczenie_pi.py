@@ -20,6 +20,7 @@ def monte_carlo_pi(num_samples):
 
     return pi_estimate
 
+
 #
 # def monte_carlo_pi(n):
 #     points_inside_circle = 0
@@ -97,7 +98,12 @@ def with_thread_pool_executor(iterations):
 # iterations = 10_000_000
 iterations = 50_000_000
 if __name__ == '__main__':
-    # no_threads(iterations)
-    # with_threads(iterations)
-    # with_processes(iterations)
+    no_threads(iterations)
+    with_threads(iterations)
+    with_processes(iterations)
     with_thread_pool_executor(iterations)
+
+# Bez wątków: 3.14141144, czas: 4.0323567390441895
+# Z wątkami: 3.1417259199999994, czas 2.1049435138702393
+# Z procesami: 3.14137056, czas 2.2485127449035645
+# Z ThreadPoolExecutor: 3.14110264, czas 1.935683250427246
