@@ -127,6 +127,17 @@ https://pl.altapps.net/soft/hackerrank-com
 zbiory
 https://stackoverflow.com/questions/53949197/isnt-sql-a-left-join-b-just-a
 -------------------
+
+zaokrąglanie decimali:
+# ROUND_DOWN: Final[str]
+# ROUND_HALF_UP: Final[str]
+# ROUND_HALF_EVEN: Final[str]
+# ROUND_CEILING: Final[str]
+# ROUND_FLOOR: Final[str]
+# ROUND_UP: Final[str]
+# ROUND_HALF_DOWN: Final[str]
+# ROUND_05UP: Final[str]
+-------------------
 <b> - Bold text
 <strong> - Important text
 <i> - Italic text
