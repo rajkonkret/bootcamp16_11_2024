@@ -216,3 +216,6 @@ grequests	Nie                 (ale równoległe)  Wysoka	        Łatwa	        
 
 figma tkinter:
 https://www.youtube.com/watch?v=bD3rx1tCRGQ
+
+pyqt designer
+https://www.pythonguis.com/installation/install-qt-designer-standalone/
