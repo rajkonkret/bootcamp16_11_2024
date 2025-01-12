@@ -202,6 +202,10 @@ pip install pyinstaller
 pyinstaller --onefile --noconsole fun.py
 pyinstaller --onefile --windowed fun.py
 
+pip freeze > requirements.txt  -> wypisanie bilbilotek uzytych w projekcie do pliku
+pip install -r .\requirements.txt -> zbudowanie środowiska na podstawie pliku
+pip list - lista zainstalowanych bibliotek
+
 
 Biblioteka	Asynchroniczność	Wydajność (przy wielu zapytaniach)	Łatwość użycia	HTTP/2
 requests	Nie             	Średnia	                            Bardzo łatwa	Nie
