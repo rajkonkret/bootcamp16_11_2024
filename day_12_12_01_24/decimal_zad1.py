@@ -76,3 +76,4 @@ print("Dzielenie z ustawieniem zaokrąglania", divide.quantize(Decimal("0.01"), 
 value = Decimal("5.456")
 rounding_nearest_005 = (value / Decimal("0.05")).quantize(Decimal("1"), rounding=ROUND_HALF_UP) * Decimal("0.05")
 print(rounding_nearest_005)
+print(Decimal("1.01") + 9)  # 10.01
