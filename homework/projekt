@@ -1,5 +1,15 @@
-zadanie biblioteka ma miec okienka
+zadanie biblioteka ma miec okienka -> tkinter, pyqt
 wprowadzenie ksiązki
 wypożyczanie itd
 tabele book autor
+# dane programu przechowywac w bazie danych
 raczej orm -> sqlalchemy
+
+na podstawie:
+zad2
+# -----------
+# stworzyc system zarzadzania biblioteką klasa Book
+# dodnie ksiazki, wypozyczenie ksiazki, zwracanie ksiązki
+# obsłużyc błedy
+# Dodac Library i usera
+---------------
