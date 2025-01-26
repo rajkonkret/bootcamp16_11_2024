@@ -5,6 +5,10 @@
     <title>Cantor</title>
 </head>
 <body>
+    {% for message in get_flashed_messages() %}
+        <div>{{ message }}</div>
+    {% endfor %}
+
     <h1>You selected {{ currency }} and amount {{ amount }}</h1>
 <!--    <img src="/static/kantor.png">-->
 <!--    <img src="{{ url_for('static', filename='kantor.png') }}">-->
