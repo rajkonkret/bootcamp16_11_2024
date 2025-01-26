@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body_content %}
+{{ super() }}
 <form id="exchange_form" action="{{ url_for('exchange') }}" method="POST">
     <label for="currency">Currency</label>
     <!--        <input type="text" id="currency" name="currency" value="EUR"><br>-->
