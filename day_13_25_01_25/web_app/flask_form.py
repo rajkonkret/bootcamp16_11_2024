@@ -8,6 +8,7 @@ def index():
     menu = f'''
     Go <a href="{url_for('exchange')}">here</a> to exchange money</br>
     To exchange 50 SEK go <a href="{url_for('cantor', currency='SEK', amount=50)}">here</a>
+    <img src="{url_for('static', filename="1.png")}">
     '''
 
     return f'<h1>Hello World!!!</h1><br>{menu}'
