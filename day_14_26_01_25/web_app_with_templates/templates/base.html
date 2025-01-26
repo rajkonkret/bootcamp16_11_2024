@@ -10,9 +10,9 @@
     {{ show_all_flash_message() }}
 
     <h1>
-        {% block my_header %} {% endblock %}
+        {% block body_header %} {% endblock %}
     </h1>
 
-    {% block body_content %} {% block %}
+    {% block body_content %} {% endblock %}
 </body>
 </html>

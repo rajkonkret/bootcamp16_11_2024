@@ -1,36 +1,14 @@
-{% from "macros.html" import show_flash_message, show_all_flash_message %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cantor</title>
-</head>
-<body>
-<!--    {% for message in get_flashed_messages() %}-->
-<!--&lt;!&ndash;        <div style="color:red; border-style: solid; background-color: yellow;">{{ message }}</div>&ndash;&gt;-->
-<!--        {{ show_flash_message(message) }}-->
-<!--    {% endfor %}-->
-    {{ show_all_flash_message() }}
+{% extends "base.html"  %}
 
-    <h1>You selected {{ currency }} and amount {{ amount }}</h1>
-<!--    <img src="/static/kantor.png">-->
-<!--    <img src="{{ url_for('static', filename='kantor.png') }}">-->
-<!--    {% if currency=='EUR' %}-->
-<!--        <img src="{{ url_for('static', filename='currencies/euro.jpg') }}">-->
-<!--    {% elif currency=='USD' %}-->
-<!--        <img src="{{ url_for('static', filename='currencies/dollar.png') }}">-->
-<!--        {% elif currency=='HUF' %}-->
-<!--        <img src="{{ url_for('static', filename='currencies/huf.jpg') }}">-->
-<!--    {% elif currency=='PLN' %}-->
-<!--        <img src="{{ url_for('static', filename='currencies/zloty.jpg') }}">-->
-<!--    {% else %}-->
-<!--        <img src="{{ url_for('static', filename='kantor.png') }}">-->
-<!--    {% endif %}-->
-        {% if currency_info.code !='unknown' %}
-            <img src="{{ url_for('static', filename=currency_info.flag) }}">
-        {% else %}
-            <img src="{{ url_for('static', filename='kantor.png') }}">
-            <p> Currency unknown </p>
-        {% endif %}
-</body>
-</html>
+{% block body_header %}
+    You selected {{ currency }} and amount {{ amount }}
+{% endblock %}
+
+{% block body_content %}
+    {% if currency_info.code !='unknown' %}
+        <img src="{{ url_for('static', filename=currency_info.flag) }}">
+    {% else %}
+        <!--            <img src="{{ url_for('static', filename='kantor.png') }}">-->
+        <p> Currency unknown </p>
+    {% endif %}
+{% endblock %}
