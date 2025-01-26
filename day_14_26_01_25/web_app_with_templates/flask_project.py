@@ -64,7 +64,8 @@ def exchange():
         if 'amount' in request.form:
             amount = request.form['amount']
 
-        return render_template('exchange_results.html', currency=currency, amount=amount)
+        return render_template('exchange_results.html', currency=currency, amount=amount,
+                               currency_info=offer.get_by_code(currency))
 
 
 if __name__ == '__main__':
