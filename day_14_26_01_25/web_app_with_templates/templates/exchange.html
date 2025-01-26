@@ -10,10 +10,12 @@
     <label for="currency">Currency</label>
     <!--        <input type="text" id="currency" name="currency" value="EUR"><br>-->
     <select id="currency" name="currency">
-        <option value="EUR">Euro</option>
-        <option value="USD">Dollar</option>
-        <option value="HUF">Forint</option>
-        <option value="PLN">Zloty</option>
+        <!--        <option value="EUR">Euro</option>-->
+        <!--        <option value="USD">Dollar</option>-->
+        <!--        <option value="HUF">Forint</option>-->
+        {% for currency in offer.currencies %}
+            <option value="{{  currency.code }}">{{ currency.name }}</option>
+        {% endfor %}
     </select><br>
     <label for="amount">Amount</label>
     <input type="text" id="amount" name="amount" value="100"><br>
