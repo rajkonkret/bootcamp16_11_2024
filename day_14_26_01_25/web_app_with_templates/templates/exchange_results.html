@@ -7,6 +7,17 @@
 <body>
     <h1>You selected {{ currency }} and amount {{ amount }}</h1>
 <!--    <img src="/static/kantor.png">-->
-    <img src="{{ url_for('static', filename='kantor.png') }}">
+<!--    <img src="{{ url_for('static', filename='kantor.png') }}">-->
+    {% if currency=='EUR' %}
+        <img src="{{ url_for('static', filename='currencies/euro.jpg') }}">
+    {% elif currency=='USD' %}
+        <img src="{{ url_for('static', filename='currencies/dollar.png') }}">
+        {% elif currency=='HUF' %}
+        <img src="{{ url_for('static', filename='currencies/huf.jpg') }}">
+    {% elif currency=='PLN' %}
+        <img src="{{ url_for('static', filename='currencies/zloty.jpg') }}">
+    {% else %}
+        <img src="{{ url_for('static', filename='kantor.png') }}">
+    {% endif %}
 </body>
 </html>
