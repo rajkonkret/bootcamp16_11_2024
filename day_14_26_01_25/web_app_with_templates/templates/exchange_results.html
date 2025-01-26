@@ -1,3 +1,4 @@
+{% from "macros.html" import show_flash_message, show_all_flash_message %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,11 @@
     <title>Cantor</title>
 </head>
 <body>
-    {% for message in get_flashed_messages() %}
-        <div>{{ message }}</div>
-    {% endfor %}
+<!--    {% for message in get_flashed_messages() %}-->
+<!--&lt;!&ndash;        <div style="color:red; border-style: solid; background-color: yellow;">{{ message }}</div>&ndash;&gt;-->
+<!--        {{ show_flash_message(message) }}-->
+<!--    {% endfor %}-->
+    {{ show_all_flash_message() }}
 
     <h1>You selected {{ currency }} and amount {{ amount }}</h1>
 <!--    <img src="/static/kantor.png">-->
