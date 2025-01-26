@@ -178,6 +178,8 @@ Aby strona poprawnie wyświetlała się przy zmianie szerokości okna
 {{ super() }} - wykonnaie kodu z klasy wyzszej
 {% include "menu.html" %} - dołaczenie jednego szblonu do drugiego
 
+--- znaki specjalne w html ----
+https://ifj.edu.pl/private/krawczyk/kurshtml/znaki/znaki.htm
 ---botstrap---
 w-100 - wypełnij pole w 100%
 
