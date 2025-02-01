@@ -270,5 +270,28 @@ def edit_transaction(transaction_id):
         return redirect((url_for('history')))
 
 
+@app.route('/users')
+def users():
+    return 'not implemented'
+
+
+@app.route('/user_status_change/<action>/<user>')
+def user_status_change(action, user_name):
+    return 'not implemented'
+
+
+@app.route('/edit_user/<user_name>', methods=['GET', 'POST'])
+def edit_user(user_name):
+    return 'not implemented'
+
+@app.route('/user_delete/<user_name>')
+def delete_user(user_name):
+    return 'not implemented'
+
+@app.route('/new_user', methods=['GET', 'POST'])
+def new_user():
+    return 'not implemented'
+
+
 if __name__ == '__main__':
     app.run(debug=True)
