@@ -280,9 +280,24 @@ def users():
     return render_template('users.html', active_menu="users", users=users)
 
 
-@app.route('/user_status_change/<action>/<user>')
+@app.route('/user_status_change/<action>/<user_name>')
 def user_status_change(action, user_name):
-    return 'not implemented'
+
+    if not 'user' in session:
+        return redirect(url_for('login'))
+    login = session['user']
+
+    db = get_db()
+    if action == 'active':
+        db.execute("""update users set is_active = (is_active + 1) % 2
+        where name = ? and name <> ?;""", [user_name, login])
+        db.commit()
+    elif action == 'admin':
+        db.execute("""update users set is_admin = (is_admin + 1) % 2
+        where name = ? and name <> ?;""", [user_name, login])
+        db.commit()
+
+    return redirect(url_for('users'))
 
 
 @app.route('/edit_user/<user_name>', methods=['GET', 'POST'])
