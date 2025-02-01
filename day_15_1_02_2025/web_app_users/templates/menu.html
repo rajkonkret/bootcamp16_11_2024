@@ -11,17 +11,22 @@
                     <a class="nav-link {{ 'active' if active_menu=='home' }}" aria-current="page"
                        href="{{ url_for('index') }}">Home</a>
                 </li>
+                {% if login.is_valid %}
                 <li class="nav-item">
                     <a class="nav-link {{ 'active' if active_menu=='exchange' }}" href="{{ url_for('exchange') }}">Exchange</a>
                 </li>
+                {% endif %}
+                {% if login.is_valid %}
                 <li class="nav-item">
                     <a class="nav-link {{ 'active' if active_menu=='history' }}"
                        href="{{ url_for('history') }}">History</a>
                 </li>
+                {% endif %}
                 <li class="nav-item">
                     <a class="nav-link {{ 'active' if active_menu=='home' }}" href="#" aria-disabled="true">About</a>
                 </li>
 
+                {% if login.is_valid and login.is_admin %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,16 +37,21 @@
                         <li><a class="dropdown-item" href="{{ url_for('new_user')}}">New User</a></li>
                     </ul>
                 </li>
+                {% endif %}
+                {% if not login.is_valid %}
                 <li class="nav-item">
                     <a class="nav-link {{ 'active' if active_menu=='login' }}" href="{{ url_for('login') }}"
                        tabindex="-1">Login</a>
                 </li>
+                {% endif %}
+                {% if login.is_valid %}
                 <li class="nav-item">
                     <a class="nav-link {{ 'active' if active_menu=='logout' }}" href="{{ url_for('logout') }}"
                        tabindex="-1">
                         Logout {{ session['user'] if 'user' in session }}
                     </a>
                 </li>
+                {% endif %}
             </ul>
         </div>
     </div>
