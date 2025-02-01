@@ -287,7 +287,35 @@ def user_status_change(action, user_name):
 
 @app.route('/edit_user/<user_name>', methods=['GET', 'POST'])
 def edit_user(user_name):
-    return 'not implemented'
+    db = get_db()
+    cur = db.execute('select name, email from users where name = ?', [user_name])
+    user = cur.fetchone()
+    message = None
+
+    if user == None:
+        flash("No such user")
+        return redirect(url_for('users'))
+
+    if request.method == 'GET':
+        return render_template('edit_user.html', active_menu='users', user=user)
+    else:
+        new_email = '' if 'email' not in request.form else request.form['email']
+        new_password = '' if 'password' not in request.form else request.form['password']
+
+        if new_email != user['email']:
+            sql_statement = 'update users set email = ? where name = ?;'
+            db.execute(sql_statement, [new_email, user_name])
+            db.commit()
+            flash("Email was changed")
+
+        if new_password != "":
+            user_pass = UserPass(user_name, new_password)
+            sql_statement = 'update users set password = ? where name = ?'
+            db.execute(sql_statement, [user_pass.hash_password(), user_name])
+            db.commit()
+            flash("Password was changed")
+
+        return redirect(url_for('users'))
 
 
 @app.route('/user_delete/<user_name>')
@@ -297,9 +325,9 @@ def delete_user(user_name):
 
     login = session['user']
 
-    db= get_db()
+    db = get_db()
     sql_statement = "delete from users where name =? and name <> ?"
-    db.execute(sql_statement,[user_name, login])
+    db.execute(sql_statement, [user_name, login])
     db.commit()
 
     return redirect(url_for('users'))
