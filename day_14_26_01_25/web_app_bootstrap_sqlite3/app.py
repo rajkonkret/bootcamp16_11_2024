@@ -1,16 +1,17 @@
-from flask import Flask, render_template, url_for, request, flash, g
+from flask import Flask, render_template, url_for, request, flash, g, redirect
 import sqlite3
 
 from six import add_move
 
-app_info ={
+app_info = {
     # 'db_file' : 'C:/Users/Administrator/PycharmProjects/bootcamp16_11_2024/day_14_26_01_25/web_app_bootstrap_sqlite3/data/cantor.db'
-    'db_file' : 'data/cantor.db'
+    'db_file': 'data/cantor.db'
 }
 # app.py
 app = Flask(__name__)
 # dodajemy secret_key aby komunikacja flash wykonywała się w bezpieczny sposób
 app.config['SECRET_KEY'] = "KluczTrudnyDOZlamania123!!!"
+
 
 def get_db():
     if not hasattr(g, 'sqlite_db'):
@@ -19,11 +20,12 @@ def get_db():
         g.sqlite_db = conn
     return g.sqlite_db
 
+
 @app.teardown_appcontext
 def close_db(error):
-
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
+
 
 class Currency:
     def __init__(self, code, name, flag):
@@ -33,6 +35,7 @@ class Currency:
 
     def __repr__(self):
         return f'<Currency {self.code}>'
+
 
 class CantorOffer:
     def __init__(self):
@@ -100,10 +103,9 @@ def exchange():
             db.commit()
             flash("Request to exchange {} was accepted".format(currency))
 
-
-
         return render_template('exchange_results.html', currency=currency, amount=amount,
                                currency_info=offer.get_by_code(currency), active_menu='exchange')
+
 
 @app.route('/history')
 def history():
@@ -112,7 +114,18 @@ def history():
     cur = db.execute(sql_command)
     transactions = cur.fetchall()
 
-    return render_template('history.html',active_menu='history', transactions=transactions)
+    return render_template('history.html', active_menu='history', transactions=transactions)
+
+
+@app.route('/delete_transaction/<int:transaction_id>')
+def delete_transaction(transaction_id):
+    db = get_db()
+    sql_statement = 'delete from transactions where id = ?;'
+    db.execute(sql_statement, [transaction_id])
+    db.commit()
+
+    return redirect(url_for('history'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
