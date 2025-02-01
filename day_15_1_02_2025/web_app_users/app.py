@@ -272,7 +272,12 @@ def edit_transaction(transaction_id):
 
 @app.route('/users')
 def users():
-    return 'not implemented'
+    db = get_db()
+    sql_command = 'select id, name, email, is_admin, is_active from users;'
+    cur = db.execute(sql_command)
+    users = cur.fetchall()
+
+    return render_template('users.html', active_menu="users", users=users)
 
 
 @app.route('/user_status_change/<action>/<user>')
@@ -287,7 +292,17 @@ def edit_user(user_name):
 
 @app.route('/user_delete/<user_name>')
 def delete_user(user_name):
-    return 'not implemented'
+    if not 'user' in session:
+        return redirect(url_for('login'))
+
+    login = session['user']
+
+    db= get_db()
+    sql_statement = "delete from users where name =? and name <> ?"
+    db.execute(sql_statement,[user_name, login])
+    db.commit()
+
+    return redirect(url_for('users'))
 
 
 @app.route('/new_user', methods=['GET', 'POST'])
@@ -320,7 +335,7 @@ def new_user():
             message = "Name cannot be empty"
         elif user['email'] == '':
             message = "Email cannot be empty"
-        elif user['user_pass'] =='':
+        elif user['user_pass'] == '':
             message = 'Password cannot be empty'
         elif not is_user_name_unique:
             message = f"User with the name {user['user_name']} already exists"
@@ -341,6 +356,7 @@ def new_user():
         else:
             flash("Correct reror: {}".format(message))
             return render_template('new_user.html', active_menu='users', user=user)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
