@@ -127,5 +127,52 @@ def delete_transaction(transaction_id):
     return redirect(url_for('history'))
 
 
+@app.route('/edit_transaction/<int:transaction_id>', methods=['GET', 'POST'])
+def edit_transaction(transaction_id):
+    offer = CantorOffer()
+    offer.load_offer()
+    db = get_db()
+
+    if request.method == "GET":
+        sql_statement = 'select id, currency, amount from transactions where id=?;'
+        cur = db.execute(sql_statement, [transaction_id])
+        transaction = cur.fetchone()
+
+        if transaction == None:
+            flash("No such transaction!")
+            return redirect(url_for('history'))
+        else:
+            return render_template('edit_transaction.html', transaction=transaction, offer=offer,
+                                   active_menu='history')
+    else:
+
+        amount = 100
+        if 'amount' in request.form:
+            amount = request.form['amount']
+            print(amount)
+
+        currency = 'EUR'
+        if 'currency' in request.form:
+            currency = request.form['currency']
+            print(currency)
+
+        if currency in offer.denied_code:
+            flash("The currency {} cannot be accepted".format(currency))
+        elif offer.get_by_code(currency) == 'unknown':
+            flash("The selected currency is unknown and cannot be accepted")
+        else:
+            db = get_db()
+            sql_command = '''update transactions set
+            currency=?,
+            amount=?,
+            user=?
+            where id=?;'''
+            db.execute(sql_command, [currency, amount, "admin", transaction_id])
+            db.commit()
+            flash("Transaction was updated")
+
+        return redirect((url_for('history')))
+
+
 if __name__ == '__main__':
     app.run(debug=True)
