@@ -8,13 +8,15 @@ import binascii
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 db = SQLAlchemy(app)
+login_manager = LoginManager(app)
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(100))
@@ -34,12 +36,17 @@ def get_hashed_password(password):
     return (salt + pwdhash).decode('ascii')
 
 
-def verify_password(self, stored_password, provided_password):
+def verify_password(stored_password, provided_password):
     salt = stored_password[:64]
     stored_password = stored_password[64:]
     pwdhash = hashlib.pbkdf2_hmac('sha512', provided_password.encode('utf=8'), salt.encode('ascii'), 100000)
     pwdhash = binascii.hexlify(pwdhash).decode('ascii')
     return pwdhash == stored_password
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.filter(User.id == id).first()
 
 
 class LoginForm(FlaskForm):
@@ -70,12 +77,26 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+
+    if form.validate_on_submit():
+        print(form.name.data, form.password.data)
+        user = User.query.filter(User.name == form.name.data).first()
+        if user != None and verify_password(user.password, form.password.data):
+            return "<h1>You are authenticated!</h1>"
+
     return render_template('login.html', form=form)
 
 
 @app.route('/logout')
 def logout():
+    logout_user()
     return '<h1>You are logged out</h1>'
+
+
+@app.route("/docs")
+@login_required
+def docs():
+    return f"<h1>You have access to protected docs. you are {current_user.name}</h1>"
 
 
 if __name__ == '__main__':

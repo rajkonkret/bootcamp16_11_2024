@@ -14,6 +14,7 @@
     <div class="col-md-4">
 
         <form method="POST">
+            {{ form.csrf_token }}
             <div class="form-row align-items-center">
                 <div class="col-auto my-1">
                     <label class="sr-only" for="inlineFormInputName">{{ form.name.label }}</label>
@@ -21,7 +22,7 @@
                 </div>
                 <div class="col-auto my-1">
                     <label class="sr-only" for="inlineFormInputGroupUserName">{{ form.password.label }}</label>
-                    {{ form.name(class_="form-control")}}
+                    {{ form.password(class_="form-control")}}
                 </div>
                 <div class="col-auto my-1">
                     <div class="form-check">
