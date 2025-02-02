@@ -35,10 +35,10 @@ def send_mail(to, subject, template, **kwargs):
                   sender=app.config['FLASKY_MAIL_SENDER'], recipients=[to])
     msg.body = render_template(template + '.txt', **kwargs)
     msg.html = render_template(template + '.html', **kwargs)
-    mail.send(msg)
-    # thr = Thread(target=send_async_mail, args=[app, msg])
-    # thr.start()
-    # return thr
+    # mail.send(msg)
+    thr = Thread(target=send_async_mail, args=[app, msg])
+    thr.start()
+    return thr
 
 
 if __name__ == '__main__':
