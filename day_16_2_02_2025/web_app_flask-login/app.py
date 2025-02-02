@@ -9,11 +9,14 @@ import binascii
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from urllib.parse import urlparse, urljoin
 
 app = Flask(__name__)
 app.config.from_pyfile('config.cfg')
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
+login_manager.login_view = 'login'
+login_manager.login_message = 'First, please log in'
 
 
 class User(db.Model, UserMixin):
@@ -49,6 +52,12 @@ def load_user(id):
     return User.query.filter(User.id == id).first()
 
 
+def is_safe_url(target):
+    ref_url = urlparse(request.host_url)
+    test_url = urlparse(urljoin(request.host_url, target))
+    return test_url.scheme in ('http', 'https') and ref_url.netloc == test_url
+
+
 class LoginForm(FlaskForm):
     name = StringField("User name")
     password = PasswordField("Password")
@@ -82,7 +91,13 @@ def login():
         print(form.name.data, form.password.data)
         user = User.query.filter(User.name == form.name.data).first()
         if user != None and verify_password(user.password, form.password.data):
-            return "<h1>You are authenticated!</h1>"
+            login_user(user)
+
+            next = request.args.get('next')
+            if next and is_safe_url(next):
+                return redirect(next)
+            else:
+                return "<h1>You are authenticated!</h1>"
 
     return render_template('login.html', form=form)
 
