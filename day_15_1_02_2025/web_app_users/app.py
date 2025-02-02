@@ -134,6 +134,7 @@ class UserPass:
             self.is_admin = db_user['is_admin']
             self.email = db_user['email']
 
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     login = UserPass(session.get('user'))
@@ -433,7 +434,7 @@ def new_user():
     user = {}
 
     if request.method == 'GET':
-        return render_template('new_user.html', active_menu='users', user=user,login=login)
+        return render_template('new_user.html', active_menu='users', user=user, login=login)
     else:
         user['user_name'] = '' if not 'user_name' in request.form else request.form['user_name']
         user['email'] = '' if not 'email' in request.form else request.form['email']
@@ -475,4 +476,5 @@ def new_user():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True, host='0.0.0.0', port="80")
+    app.run(debug=True, host='0.0.0.0')
