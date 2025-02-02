@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+New User
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="col-5 h1">New User</div>
+    </div>
+    <form id="exchange_form" action="{{ url_for('new_user') }}" method="POST">
+
+        <div class="mb-3">
+            <label for="user_name" class="form-label">User Name</label>
+            <input id="user_name" name="user_name" value="{{ user.user_name }}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" id="email" name="email" value="{{ user.email }}" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="user_pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="user_pass" name="user_pass">
+        </div>
+
+        <div class="row justify-content-start">
+            <div class="col-1"></div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+{% endblock %}
