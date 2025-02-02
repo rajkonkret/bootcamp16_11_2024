@@ -193,6 +193,9 @@ btn-light: Jasny przycisk, który dobrze kontrastuje z ciemnym tłem.
 btn-dark: Ciemny przycisk, który dobrze kontrastuje z jasnym tłem.
 btn-link: Przycisk stylizowany jako link, bez tła i obramowania, ale zachowuje właściwości przycisku.
 
+https://flask-login.readthedocs.io/en/stable/
+
+
 ----django----
 python -m pip install Django  - instalacja Django
 cd web_app_django - przejscie do katalogu gzie chcemy miec nowy projekt Django
