@@ -302,7 +302,7 @@ def delete_transaction(transaction_id):
     # db.commit()
     del_tran = Transaction.query.filter(Transaction.id == transaction_id).first()
     db.session.delete(del_tran)
-    db.sesion.commit()
+    db.session.commit()
 
     return redirect(url_for('history'))
 
@@ -408,8 +408,9 @@ def user_status_change(action, user_name):
         # db.execute("""update users set is_admin = (is_admin + 1) % 2
         # where name = ? and name <> ?;""", [user_name, login.user])
         # db.commit()
-        user.is_admin = (user.is_admin + 1) % 2
-        db.session.commit()
+        if user:
+            user.is_admin = (user.is_admin + 1) % 2
+            db.session.commit()
 
     return redirect(url_for('users'))
 
