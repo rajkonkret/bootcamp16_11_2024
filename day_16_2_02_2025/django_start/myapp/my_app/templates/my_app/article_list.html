@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Artykułów</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .article {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }
+        .article h2 {
+            margin: 0;
+        }
+        .article p {
+            margin: 5px 0;
+        }
+        .article small {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista Artykułów</h1>
+
+    {% if articles %}
+        {% for article in articles %}
+            <div class="article">
+                <h2>{{ article.title }}</h2>
+                <p>{{ article.content }}</p>
+                <small>Opublikowano: {{ article.published_date|date:"d-m-Y H:i" }}</small>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Brak artykułów do wyświetlenia.</p>
+    {% endif %}
+
+</body>
+</html>
