@@ -1,0 +1,12 @@
+Cześć {{ user }},
+
+Dziękujemy za skorzystanie z naszej aplikacji!
+
+Twoje ostatnie działania:
+- Zalogowanie się do systemu
+- Zmiana ustawień profilu
+
+Jeśli to nie ty dokonałeś tych zmian, skontaktuj się z nami natychmiast.
+
+Pozdrawiamy,
+Zespół Aplikacji
