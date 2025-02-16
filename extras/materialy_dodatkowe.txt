@@ -239,3 +239,5 @@ https://www.youtube.com/watch?v=bD3rx1tCRGQ
 
 pyqt designer
 https://www.pythonguis.com/installation/install-qt-designer-standalone/
+
+https://colab.research.google.com/drive/19ezxRmSIObRx5J8JHAa35V3ruC5McgMu#scrollTo=6Tl16pyWnO0N
