@@ -1,5 +1,6 @@
 import xlwt
 from xlwt.Utils import cell_to_rowcol2
+import datetime as dt
 
 book = xlwt.Workbook()
 
@@ -20,4 +21,10 @@ sheet.write(r=2, c=0, label="Witaj 3", style=formtting)
 number_format = xlwt.easyxf(num_format_str="0.00")
 sheet.write(3, 0, 3.33333, number_format)
 
+date_format = xlwt.easyxf(num_format_str="yyyy/mm/dd")
+sheet.write(4, 0, dt.datetime(2012, 2, 3), date_format)
+
+sheet.write(5, 0, xlwt.Formula("SUM(A4, 2)"))
+
+# sheet.insert_bitmap("images/pict.bmp", 0, 2)
 book.save('xlwt.xls')
