@@ -241,3 +241,16 @@ pyqt designer
 https://www.pythonguis.com/installation/install-qt-designer-standalone/
 
 https://colab.research.google.com/drive/19ezxRmSIObRx5J8JHAa35V3ruC5McgMu#scrollTo=6Tl16pyWnO0N
+
+# numpy typy danych
+i - integer
+b - boolean
+u - unsigned integer
+f - float
+c - complex float
+m - timedelta
+M - datetime
+O - object
+S - string
+U - unicode string
+V - fixed chunk of memory for other type ( void )
