@@ -60,3 +60,33 @@ print(new_arr_bool)
 print(new_arr_bool.dtype)
 # [ True False  True]
 # bool
+
+arr_float_2 = np.array([1.1, 2.2, 3.3, 4.4, 5.5])
+print(arr_float_2.dtype)
+print(arr_float_2)
+# float64
+# [1.1 2.2 3.3 4.4 5.5]
+print('Konwwersja na int32', arr_float_2.astype("int32"))
+print('Konwwersja na int32', arr_float_2.astype("int32").dtype)
+# Konwwersja na int32 [1 2 3 4 5]
+# Konwwersja na int32 int32
+
+print('Konwwersja na float16', arr_float_2.astype("float16"))
+print('Konwwersja na float16', arr_float_2.astype("float16").dtype)
+# Konwwersja na float16 [1.1 2.2 3.3 4.4 5.5]
+# Konwwersja na foat16 float16
+
+print('Konwwersja na bool', arr_float_2.astype("bool"))
+print('Konwwersja na bool', arr_float_2.astype("bool").dtype)
+# Konwwersja na bool [ True  True  True  True  True]
+# Konwwersja na bool bool
+
+print('Konwwersja na U6', arr_float_2.astype("U6"))
+print('Konwwersja na U6', arr_float_2.astype("U6").dtype)
+# Konwwersja na U6 ['1.1' '2.2' '3.3' '4.4' '5.5']
+# Konwwersja na U6 <U6 unicode długości 6
+
+print('Konwwersja na uint8', arr_float_2.astype("uint8"))
+print('Konwwersja na uint8', arr_float_2.astype("uint8").dtype)
+# Konwwersja na uint8 [1 2 3 4 5]
+# Konwwersja na uint8 uint8
