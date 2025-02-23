@@ -123,3 +123,4 @@ def infer_on_rqandom_sample(dataset: np.ndarray, labels: np.ndarray, model: List
     example_idx = np.random.choice(np.arange(mnist_test_images.shape[0]))
     example = dataset[example_idx]
     gt_label = labels[example_idx]
+
