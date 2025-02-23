@@ -102,13 +102,17 @@ def infer_from_model(model: List[Layer],
     return np.argmax(x, axis=-1)
 
 
-dummy_x = np.random.normal(0, 1, size=(5, IMAGE_SIZE))
+IMAGES_COUNT = 25
+dummy_x = np.random.normal(0, 1, size=(IMAGES_COUNT, IMAGE_SIZE))
 dummy_inference = infer_from_model(model=model, x=dummy_x)
 print(dummy_inference)
 # błedny url w bibliotece
 # mnist_test_images = mnist.test_images().astype(np.float32) / 255.0
 # mnist_test_labels = mnist.test_labels()
 # w zamian uzyjemy Tensorflow do pobrania tych danych
+import os
+
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 from tensorflow.keras.datasets import mnist
 
@@ -119,8 +123,26 @@ mnist_train_images = mnist_train_images.astype(np.float32) / 255.0
 print(mnist_test_images.shape)
 print(mnist_test_labels.shape)
 
-def infer_on_rqandom_sample(dataset: np.ndarray, labels: np.ndarray, model: List[Layer]) -> None:
+
+def infer_on_random_sample(dataset: np.ndarray, labels: np.ndarray, model: List[Layer]) -> None:
     example_idx = np.random.choice(np.arange(mnist_test_images.shape[0]))
     example = dataset[example_idx]
     gt_label = labels[example_idx]
+    inference_result = infer_from_model(
+        model=model,
+        x=example,
+        flatten_input=True
+    )
 
+    plt.imshow(example, cmap="gray")
+    plt.show()
+    print(f"GT LABEL: {gt_label}")
+    print(f"PREDICTED DIGIT: {inference_result[0]}")
+
+
+for _ in range(IMAGES_COUNT):
+    infer_on_random_sample(
+        dataset=mnist_test_images,
+        labels=mnist_test_labels,
+        model=model
+    )
