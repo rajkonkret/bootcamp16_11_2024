@@ -33,8 +33,8 @@ def initialize_array_2D(shape: Tuple[int, int]) -> PythonArray2D:
         ]
 
 
-PYTHON_ARRAY_A = generate_random_array2D(shape=[200, 300])
-PYTHON_ARRAY_B = generate_random_array2D(shape=[300, 200])
+PYTHON_ARRAY_A = generate_random_array2D(shape=[500, 300])
+PYTHON_ARRAY_B = generate_random_array2D(shape=[300, 500])
 
 NUMPY_ARRAY_A  = np.array(PYTHON_ARRAY_A)
 NUMPY_ARRAY_B  = np.array(PYTHON_ARRAY_B)
@@ -55,8 +55,13 @@ result_diff = np.sum(np.absolute(numpy_operation_result - np.array(python_operat
 print(result_diff)
 print(result_diff < 1e5)
 
-Time: 1.6792140007019043
-Time: 0.009407758712768555
-178.49246052864999
-1.1903011909453198e-09
-True
+# Time: 1.6792140007019043
+# Time: 0.009407758712768555
+# 178.49246052864999
+# 1.1903011909453198e-09
+# True
+# Time: 1.4987163543701172
+# Time: 0.0013096332550048828
+# 1144.3786637538685
+# 1.195303411805071e-09
+# True
