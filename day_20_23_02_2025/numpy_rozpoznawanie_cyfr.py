@@ -151,28 +151,40 @@ def infer_on_random_sample(dataset: np.ndarray, labels: np.ndarray, model: List[
     print(f"PREDICTED DIGIT: {inference_result[0]}")
 
 
-# for _ in range(IMAGES_COUNT):
-#     infer_on_random_sample(
-#         dataset=mnist_test_images,
-#         labels=mnist_test_labels,
-#         model=model
-#     )
+def sample_predictions():
+    for _ in range(IMAGES_COUNT):
+        infer_on_random_sample(
+            dataset=mnist_test_images,
+            labels=mnist_test_labels,
+            model=model
+        )
 
-# image_path = "cyfra.png"
-# image_path = "cyfra3.png"
-image_path = "cyfra5.png"
-image_array = image_to_array(image_path)
 
-print("Kształt tablicy:", image_array.shape)
+def predict_image(image_array):
+    result = infer_from_model(
+        model=model,
+        x=image_array,
+        flatten_input=True
+    )
+    return result
 
-plt.imshow(image_array, cmap="gray")
-plt.axis('off')
-plt.show()
 
-result = infer_from_model(
-    model=model,
-    x=image_array,
-    flatten_input=True
-)
+if __name__ == '__main__':
+    # image_path = "cyfra.png"
+    # image_path = "cyfra3.png"
+    image_path = "cyfra5.png"
+    image_array = image_to_array(image_path)
 
-print(f"PREDICTED DIGIT: {result[0]}")
+    print("Kształt tablicy:", image_array.shape)
+
+    plt.imshow(image_array, cmap="gray")
+    plt.axis('off')
+    plt.show()
+
+    result = infer_from_model(
+        model=model,
+        x=image_array,
+        flatten_input=True
+    )
+
+    print(f"PREDICTED DIGIT: {result[0]}")
