@@ -7,6 +7,7 @@ with open("tabela_przestawna3.xlsx", "rb") as f:
 print(content[:200])  # Podgląd pierwszych 200 bajtów
 
 print("Rozmiar pliku:", len(content), "bajtów")
-df = pd.read_excel("tabela_przestawna3.xlsx", skiprows=3, engine="openpyxl")
+# df = pd.read_excel("tabela_przestawna3.xlsx", skiprows=3, engine="openpyxl")
+df = pd.read_excel("fix.xlsx", skiprows=3, engine="openpyxl")
 
 print(df.head())
