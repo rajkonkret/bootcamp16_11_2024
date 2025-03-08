@@ -95,3 +95,13 @@ print(df)
 # 3    15   Dorosły
 # 4    40   Dorosły
 # 5    65    Senior
+
+df = pd.DataFrame({"Miasto": ["Warszawa123", "Kraków45", 'Łódź', "Gdańsk789", "Poznań"]})
+df['Miasto'] = df['Miasto'].replace(r'\d+', '', regex=True)
+print(df)
+#      Miasto
+# 0  Warszawa
+# 1    Kraków
+# 2      Łódź
+# 3    Gdańsk
+# 4    Poznań
