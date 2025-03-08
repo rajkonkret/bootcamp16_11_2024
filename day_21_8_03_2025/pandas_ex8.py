@@ -77,11 +77,14 @@ print(df)
 # 4    40   Dorosły
 
 df = pd.DataFrame({"Wiek": [18, 25, 30, 15, 40, 65]})
+
+
 def zmien(x):
     if x > 60:
         return "Senior"
     else:
         return "Dorosły"
+
 
 df['Kategoria'] = df['Wiek'].apply(zmien)
 print(df)
