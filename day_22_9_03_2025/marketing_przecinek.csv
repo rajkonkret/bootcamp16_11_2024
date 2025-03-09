@@ -1,4 +1,4 @@
-          user_id date_served marketing_channel          variant converted language_displayed language_preferred    age_group date_subscribed date_canceled subscribing_channel is_retained
+          user_id, date_served, marketing_channel ,         variant, converted ,language_displayed, language_preferred ,   age_group, date_subscribed, date_canceled, subscribing_channel, is_retained
 0      a100000029      1/1/18         House Ads  personalization      True            English            English   0-18 years          1/1/18           NaN           House Ads        True
 1      a100000030      1/1/18         House Ads  personalization      True            English            English  19-24 years          1/1/18           NaN           House Ads        True
 2      a100000031      1/1/18         House Ads  personalization      True            English            English  24-30 years          1/1/18           NaN           House Ads        True
