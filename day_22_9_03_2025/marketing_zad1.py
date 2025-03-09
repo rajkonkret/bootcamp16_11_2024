@@ -34,11 +34,27 @@ print(df['channel_code'].head(3))
 # 2    1.0
 # Name: channel_code, dtype: float64
 
-df['date_served'] = pd.to_datetime(df['date_served'])
+df['date_served'] = pd.to_datetime(df['date_served'], errors='coerce', format='mixed')
 print(df['date_served'].head(3))
 # 0   2018-01-01
 # 1   2018-01-01
 # 2   2018-01-01
 # Name: date_served, dtype: datetime64[ns]
 
-df['date_served'] = pd.to_datetime(df['date_served'])
+# dni tygodnia
+# df['date_served'] = df['date_served'].dt.dayofweek
+# print(df['date_served'].head(3))
+
+daily_users = df.groupby(["date_served"])["user_id"].nunique()
+print("Dziennie:", daily_users)
+
+# narysowac wykres
+import matplotlib.pyplot as plt
+
+daily_users.plot()
+
+plt.title("Zasięg dzienny kampani marketingowej")
+plt.xlabel("Data")
+plt.ylabel("Liczba użytkowników")
+plt.xticks(rotation=45)
+plt.show()
