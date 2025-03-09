@@ -40,3 +40,5 @@ print(df['date_served'].head(3))
 # 1   2018-01-01
 # 2   2018-01-01
 # Name: date_served, dtype: datetime64[ns]
+
+df['date_served'] = pd.to_datetime(df['date_served'])
