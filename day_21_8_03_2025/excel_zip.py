@@ -14,6 +14,7 @@ shared_strings = [elem.text for elem in root.findall(".//{http://schemas.openxml
 
 print("Odczytane wartości tekstowe:", shared_strings)
 
+
 def convert_index_to_text(index):
     if index.isdigit():
         idx = int(index)
@@ -22,6 +23,7 @@ def convert_index_to_text(index):
         else:
             # return f"[BŁĄD: brak wartości dla index={idx}]"  # Komunikat o błędzie
             return idx
+
 
 # Otwieramy sheet1.xml i zamieniamy indeksy na wartości
 with ZipFile("tabela_przestawna2.xlsx", "r") as archive:
@@ -42,6 +44,7 @@ for row in sheet_root.findall(".//{http://schemas.openxmlformats.org/spreadsheet
 
 # Tworzymy DataFrame
 import pandas as pd
+
 df = pd.DataFrame(data)
 print(df.head())
 
