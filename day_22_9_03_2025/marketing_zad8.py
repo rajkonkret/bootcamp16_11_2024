@@ -1,5 +1,10 @@
+import numpy as np
+
 import marketing_zad7 as fun
 import pandas as pd
+from scipy import stats
+
+from day_22_9_03_2025 import function_tools
 
 df = pd.read_csv("marketing_r_bool.csv", sep=",")
 df['date_served'] = pd.to_datetime(df['date_served'], format='%m/%d/%y')

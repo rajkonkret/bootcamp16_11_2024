@@ -1,5 +1,7 @@
 import numpy as np
-import lift_function
+from scipy import stats
+
+import function_tools
 import marketing_zad7 as fun
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -37,4 +39,27 @@ print("Control conversion rate:", np.mean(control))  # średnia
 print("Personalization conversion rate:", np.mean(personalization))
 # Control conversion rate: 0.2814814814814815
 # Personalization conversion rate: 0.3908450704225352
-print(lift_function.lift(control, personalization))
+print(function_tools.lift(control, personalization))
+
+
+def ab_segmentation(segment):
+    for subsegment in np.unique(df[segment].values):
+        print(subsegment)
+
+        email = df[(df['marketing_channel'] == 'Email') & (df[segment] == subsegment)]
+        print(email.head().to_string)
+        subscribers = email.groupby(['user_id', 'variant'])['converted'].max()
+        # print(subscribers.head())
+        subscribers = pd.DataFrame(subscribers.unstack(level=1))
+        control = subscribers['control'].dropna()
+        personalization = subscribers['personalization'].dropna()
+        print(control.dtype, personalization.dtype)
+
+        print("Lift:", function_tools.lift(control, personalization))
+        control = control.astype(int)
+        personalization = personalization.astype(int)
+        print("t-static:", stats.ttest_ind(control, personalization), '\n\n')
+
+
+ab_segmentation('language_displayed')
+ab_segmentation('age_group')

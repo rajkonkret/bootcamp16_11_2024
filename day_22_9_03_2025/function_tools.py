@@ -8,3 +8,7 @@ def lift(a, b):
     lift = (b_mean - a_mean) / a_mean
 
     return str(round(lift * 100, 2)) + '%'
+
+
+
+
