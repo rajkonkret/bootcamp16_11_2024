@@ -1,5 +1,5 @@
 import numpy as np
-
+import lift_function
 import marketing_zad7 as fun
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -37,3 +37,4 @@ print("Control conversion rate:", np.mean(control))  # średnia
 print("Personalization conversion rate:", np.mean(personalization))
 # Control conversion rate: 0.2814814814814815
 # Personalization conversion rate: 0.3908450704225352
+print(lift_function.lift(control, personalization))
