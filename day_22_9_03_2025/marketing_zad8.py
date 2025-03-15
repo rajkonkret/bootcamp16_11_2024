@@ -1,5 +1,4 @@
 import marketing_zad7 as fun
-import matplotlib.pyplot as plt
 import pandas as pd
 
 df = pd.read_csv("marketing_r_bool.csv", sep=",")
