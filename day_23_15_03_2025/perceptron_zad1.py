@@ -2,6 +2,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# perceptron - matematyczne odzwierciedlenie neuronu
+# przyjmuje zestaw danych
+# na podstawie danych wejsciowych ustala wagi i dodakowe przesunięcie taka by jak najbardziej przewidziany wynik był własciwy
+# suma ważona z = x*w + b
+
+# funkcja aktywacji - funkcja ktora daaje wynik działąnia perceptronu
+# np funkcja skokowa wartości 0 lub 1
+# perceptron binarny 
+
 class Perceptron:
     def __init__(self, learning_rate=0.1, epochs=10):
         self.learning_rate = learning_rate
