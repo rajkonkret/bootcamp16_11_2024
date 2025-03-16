@@ -1,4 +1,5 @@
 import os
+import time
 
 import numpy as np
 
@@ -50,7 +51,7 @@ def train_model(y_train, logic_type):
 
     # trenowanie modelu
     with tf.device('/CPU:0'):
-        model.fit(X, y_train, epochs=1000, verbose=0)
+        model.fit(X, y_train, epochs=1000, verbose=1)
 
     # testowanie mmodelu
     predictions = model.predict(X)
@@ -58,15 +59,20 @@ def train_model(y_train, logic_type):
 
     print(f"Przewidywanie wyników dla operacji {logic_type}")
     for i in range(len(X)):
-        print(f"{X[i]} {predictions[i][0]} )oczekiwanie: {y_train[i][0]}")
+        print(f"{X[i]} {predictions[i][0]} ) oczekiwanie: {y_train[i][0]}")
 
     return model
 
+
+start_time = time.time()
 
 model_xor = train_model(y_xor, "XOR")
 model_and = train_model(y_and, "AND")
 model_or = train_model(y_or, "OR")
 
-model_or.save("model_or.keras")
-model_and.save("model_and.keras")
-model_xor.save("model_xor.keras")
+print(f"Estimated time: {time.time() - start_time}")
+
+# model_or.save("model_or.keras")
+# model_and.save("model_and.keras")
+# model_xor.save("model_xor.keras")
+print("Modele zostały zapisane")
