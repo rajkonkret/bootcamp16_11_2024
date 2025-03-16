@@ -256,3 +256,6 @@ U - unicode string
 V - fixed chunk of memory for other type ( void )
 colab numpy
 https://colab.research.google.com/drive/1BRohei3CkKP3keC_9Hac9FKDio6Kqx0A#scrollTo=hcWsrvqED8GZ
+
+link excel powerquery
+https://github.com/Deemixx/PQrefresher
