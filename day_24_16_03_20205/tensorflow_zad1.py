@@ -49,8 +49,8 @@ def train_model(y_train, logic_type):
     model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 
     # trenowanie modelu
-    with tf.device('/GPU:0'):
-        model.fit(X, y_train, epochs=500, verbose=0)
+    with tf.device('/CPU:0'):
+        model.fit(X, y_train, epochs=1000, verbose=0)
 
     # testowanie mmodelu
     predictions = model.predict(X)
@@ -68,3 +68,5 @@ model_and = train_model(y_and, "AND")
 model_or = train_model(y_or, "OR")
 
 model_or.save("model_or.keras")
+model_and.save("model_and.keras")
+model_xor.save("model_xor.keras")

@@ -5,7 +5,7 @@ import numpy as np
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"  # przed importowaniem kerasa
 from tensorflow.keras.models import load_model
 
-model = load_model("model_or.h5")
+model = load_model("model_or.keras")
 # kompilacja modelu
 model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 model.summary()
