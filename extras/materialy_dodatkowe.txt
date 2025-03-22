@@ -257,5 +257,32 @@ V - fixed chunk of memory for other type ( void )
 colab numpy
 https://colab.research.google.com/drive/1BRohei3CkKP3keC_9Hac9FKDio6Kqx0A#scrollTo=hcWsrvqED8GZ
 
+---------------------
 link excel powerquery
 https://github.com/Deemixx/PQrefresher
+----------------
+venv
+python -m venv myenv
+--- aktywacja
+source .venv/bin/activate - linux/mac
+.venv/Scripts/activate.bat - win cmd
+.venv\Scripts\Activate.ps1  - powershell
+--deaktywacja
+deactivate
+
+-------------------------
+poetry
+
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<TwojaNazwa>\AppData\Roaming\Python\Scripts", "User")
+poetry --version
+PS C:\Users\Administrator> Get-Command poetry | Select-Object Source
+
+Source
+------
+C:\Users\Administrator\AppData\Roaming\Python\Scripts\poetry.exe
+
+poetry new moj_projekt
+poetry add requests
+poetry run python --version
+poetry show
