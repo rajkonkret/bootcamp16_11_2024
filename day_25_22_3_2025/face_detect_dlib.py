@@ -2,7 +2,9 @@ import cv2
 import dlib
 import matplotlib.pyplot as plt
 
-image_path = "../typy_danych_zad/dodatkowe_zad/obraz.jpg"
+# https://github.com/eddiehe99/dlib-whl/releases/tag/v19.24.6
+
+image_path = "obraz.jpg"
 image = cv2.imread(image_path)
 
 if image is None:
