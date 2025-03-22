@@ -47,7 +47,7 @@ print(f"Estimated time: {time.time() - start_time}")
 
 # testownie modelu
 predictions = model.predict(X)
-predictions = (predictions > 0.5 ).astype(int)
+predictions = (predictions > 0.5).astype(int)
 
 print("Przewidywane wartości dla AND, OR, XOR\n")
 for i in range(len(X)):
@@ -55,3 +55,10 @@ for i in range(len(X)):
 
 # zapisanie modelu
 model.save("logic_gates.keras")
+
+# zapisanie wag i biasów z modelu numpy
+weights = model.get_weights()
+
+filename = "weights_only.npz"
+np.savez(filename, *weights)
+print("Wagi zapisane do pliku", filename)
