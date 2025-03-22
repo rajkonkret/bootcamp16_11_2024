@@ -5,10 +5,19 @@ import numpy as np
 os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"  # przed importowaniem kerasa
 from tensorflow.keras.models import load_model
 
-model = load_model("model_or.keras")
+model = load_model("model_and.keras")
 # kompilacja modelu
 model.compile(optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"])
 model.summary()
+input()
+# Model: "sequential_2"
+# ┌─────────────────────────────────┬────────────────────────┬───────────────┐
+# │ Layer (type)                    │ Output Shape           │       Param # │
+# ├─────────────────────────────────┼────────────────────────┼───────────────┤
+# │ dense_4 (Dense)                 │ (None, 4)              │            12 │
+# ├─────────────────────────────────┼────────────────────────┼───────────────┤
+# │ dense_5 (Dense)                 │ (None, 1)              │             5 │
+# └─────────────────────────────────┴────────────────────────┴───────────────┘
 
 # dane wejściowe
 X = np.array(
