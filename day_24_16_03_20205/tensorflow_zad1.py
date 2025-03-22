@@ -20,7 +20,9 @@ from tensorflow.keras.layers import Dense
 print("Dostępne urządzenia:")
 print(tf.config.list_physical_devices())
 print("Czy GPU jest dostępne:", tf.config.list_physical_devices('GPU'))
+print("Czy GPU jest dostępne:", tf.config.list_physical_devices())
 
+input()
 # dane wejściowe
 X = np.array(
     [[0, 0],
