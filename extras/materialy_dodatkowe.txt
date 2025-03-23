@@ -271,7 +271,7 @@ source .venv/bin/activate - linux/mac
 deactivate
 
 -------------------------
-poetry
+poetry środowisko wirtulne, nowoczesne podejście (zamiennik venv)
 
 (Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Users\<TwojaNazwa>\AppData\Roaming\Python\Scripts", "User")
@@ -286,3 +286,10 @@ poetry new moj_projekt
 poetry add requests
 poetry run python --version
 poetry show
+
+instalacja dlib
+# https://github.com/eddiehe99/dlib-whl/releases/tag/v19.24.6
+# pip install .\dlib-19.24.6-cp312-cp312-win_amd64.whl
+
+zamiennik PyQt6 biblioteka PySide6
+https://doc.qt.io/qtforpython-6/index.html

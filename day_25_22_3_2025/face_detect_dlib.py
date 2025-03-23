@@ -3,6 +3,7 @@ import dlib
 import matplotlib.pyplot as plt
 
 # https://github.com/eddiehe99/dlib-whl/releases/tag/v19.24.6
+# pip install .\dlib-19.24.6-cp312-cp312-win_amd64.whl
 
 image_path = "obraz.jpg"
 image = cv2.imread(image_path)
