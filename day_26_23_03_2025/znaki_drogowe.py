@@ -47,7 +47,7 @@ np.savez("gtrsb_dataset.npz", x=x_data, y=y_data)
 print(x_data.shape)  # (39209, 32, 32, 3)
 
 # normalizacja obrazow
-x_data, = x_data.astype("float32") / 255.0
+x_data = x_data.astype("float32") / 255.0
 
 # one hot encoding
 y_data = to_categorical(y_data, num_classes=43)
@@ -69,7 +69,7 @@ history = model.fit(
     x_train,
     y_train,
     epochs=10,
-    validation_date=(x_test, y_test),
+    validation_data=(x_test, y_test),
     batch_size=32
 )
 
@@ -77,8 +77,8 @@ model.save('gtrsb_model.keras')
 print("Model został zapisany")
 
 # wizualizacja dokładności
-plt.plot(history.history['accuracy'], labels='Train Accuracy')
-plt.plot(history.history['val_accuracy'], labels='Test Accuracy')
+plt.plot(history.history['accuracy'], label='Train Accuracy')
+plt.plot(history.history['val_accuracy'], label='Test Accuracy')
 plt.xlabel("Epoka")
 plt.ylabel("dokładność")
 plt.legend()
