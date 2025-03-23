@@ -43,4 +43,43 @@ def load_gtrsb_data(data_dir, img_size=(32, 32)):
 train_dir = r"gtrsb/files/GTSRB/Training/Images"
 
 x_data, y_data = load_gtrsb_data(train_dir)
-print(x_data.shape)
+np.savez("gtrsb_dataset.npz", x=x_data, y=y_data)
+print(x_data.shape)  # (39209, 32, 32, 3)
+
+# normalizacja obrazow
+x_data, = x_data.astype("float32") / 255.0
+
+# one hot encoding
+y_data = to_categorical(y_data, num_classes=43)
+
+x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.2, random_state=42)
+
+model = keras.Sequential([
+    layers.Flatten(input_shape=(32, 32, 3)),
+    layers.Dense(512, activation='relu'),
+    layers.Dense(256, activation='relu'),
+    layers.Dense(43, activation="softmax")
+])
+
+model.compile(optimizer="adam",
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+history = model.fit(
+    x_train,
+    y_train,
+    epochs=10,
+    validation_date=(x_test, y_test),
+    batch_size=32
+)
+
+model.save('gtrsb_model.keras')
+print("Model został zapisany")
+
+# wizualizacja dokładności
+plt.plot(history.history['accuracy'], labels='Train Accuracy')
+plt.plot(history.history['val_accuracy'], labels='Test Accuracy')
+plt.xlabel("Epoka")
+plt.ylabel("dokładność")
+plt.legend()
+plt.show()
