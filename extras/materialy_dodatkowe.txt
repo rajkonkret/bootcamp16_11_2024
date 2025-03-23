@@ -293,3 +293,6 @@ instalacja dlib
 
 zamiennik PyQt6 biblioteka PySide6
 https://doc.qt.io/qtforpython-6/index.html
+
+face detection
+https://www.kaggle.com/code/sahityasetu/face-mask-detection-ann-cnn-transfer-learning
