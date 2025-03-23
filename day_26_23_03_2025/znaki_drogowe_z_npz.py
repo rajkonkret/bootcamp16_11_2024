@@ -72,7 +72,7 @@ model.compile(optimizer="adam",
 history = model.fit(
     x_train,
     y_train,
-    epochs=10,
+    epochs=20,
     validation_data=(x_test, y_test),
     batch_size=32
 )

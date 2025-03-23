@@ -79,3 +79,28 @@ labels_map = {
     42: "Koniec zakazu wyprzedzania dla pojazdów > 3.5 ton"
 }
 
+num_samples = 10
+rows, cols = 2, 5
+indices = np.random.choice(len(x_test), num_samples, replace=False)
+x_sample = x_test[indices]
+y_sample = y_test[indices]
+
+predictions = model.predict(x_sample)
+
+# fig, axes = plt.subplots(1, num_samples, figsize=(15, 5))
+# fig, axes = plt.subplots(num_samples, 1, figsize=(5, 15))
+fig, axes = plt.subplots(rows, cols, figsize=(15, 10))
+axes = axes.flatten() # spłąszcza tablice do 1d
+for i, ax in enumerate(axes):
+    ax.imshow(x_sample[i])
+    predicted_label = np.argmax(predictions[i])
+    true_label = np.argmax(y_sample[i])
+    pred_text = f"Pred: {predicted_label}\n{labels_map.get(predicted_label, "Nieznana etykieta")}"
+    true_text = f"True: {true_label}\n{labels_map.get(true_label, "Nieznana etykieta")}"
+
+    ax.set_title(f"{pred_text}\n{true_text}", fontsize=10)
+    ax.axis('off')
+
+plt.tight_layout()
+plt.savefig("dane.png")
+plt.show()
