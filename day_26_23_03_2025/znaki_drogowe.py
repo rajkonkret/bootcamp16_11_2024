@@ -43,7 +43,7 @@ def load_gtrsb_data(data_dir, img_size=(32, 32)):
 train_dir = r"gtrsb/files/GTSRB/Training/Images"
 
 x_data, y_data = load_gtrsb_data(train_dir)
-np.savez("gtrsb_dataset.npz", x=x_data, y=y_data)
+np.savez("gtrsb_dataset_1.npz", x=x_data, y=y_data)
 print(x_data.shape)  # (39209, 32, 32, 3)
 
 # normalizacja obrazow
@@ -73,7 +73,7 @@ history = model.fit(
     batch_size=32
 )
 
-model.save('gtrsb_model.keras')
+model.save('gtrsb_model_1.keras')
 print("Model został zapisany")
 
 # wizualizacja dokładności
