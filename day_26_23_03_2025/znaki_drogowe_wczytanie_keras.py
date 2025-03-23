@@ -89,7 +89,7 @@ predictions = model.predict(x_sample)
 
 # fig, axes = plt.subplots(1, num_samples, figsize=(15, 5))
 # fig, axes = plt.subplots(num_samples, 1, figsize=(5, 15))
-fig, axes = plt.subplots(rows, cols, figsize=(15, 10))
+fig, axes = plt.subplots(rows, cols, figsize=(15, 8))
 axes = axes.flatten() # spłąszcza tablice do 1d
 for i, ax in enumerate(axes):
     ax.imshow(x_sample[i])
