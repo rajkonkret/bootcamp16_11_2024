@@ -296,3 +296,5 @@ https://doc.qt.io/qtforpython-6/index.html
 
 face detection
 https://www.kaggle.com/code/sahityasetu/face-mask-detection-ann-cnn-transfer-learning
+
+git: https://gamma.app/docs/Git-rozproszony-system-kontroli-wersji-m6lnyitz3e788it?mode=doc
